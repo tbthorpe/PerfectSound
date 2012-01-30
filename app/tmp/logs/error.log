@@ -1,0 +1,10 @@
+2012-01-28 13:07:16 Error: [MissingActionException] Action UsersController::login() could not be found.
+#0 /Users/tbt/Sites/perfectsound.local/lib/Cake/Routing/Dispatcher.php(104): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/tbt/Sites/perfectsound.local/lib/Cake/Routing/Dispatcher.php(86): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/tbt/Sites/perfectsound.local/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-01-28 13:11:15 Error: [MissingActionException] Action UsersController::login() could not be found.
+#0 /Users/tbt/Sites/perfectsound.local/lib/Cake/Routing/Dispatcher.php(104): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/tbt/Sites/perfectsound.local/lib/Cake/Routing/Dispatcher.php(86): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/tbt/Sites/perfectsound.local/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
