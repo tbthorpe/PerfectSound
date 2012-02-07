@@ -1,20 +1,16 @@
-<div class="sections form">
-<?php echo $this->Form->create('Section',array('type'=>'file'));?>
+<div class="news form">
+<?php echo $this->Form->create('News',array('type'=>'file'));?>
 	<fieldset>
-		<legend><?php echo __('Add Section'); ?></legend>
+		<legend><?php echo __('Add Post'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
+		echo $this->Form->input('title');
 		echo $this->Form->input('copy');
-		// echo $this->Form->input('mainimage',array('type'=>'file'));
-		echo $this->Form->input('MainImage.filename', array('label'=>'Image','type'=>'file'));
-		echo $this->Form->input('MainImage.class', array('type'=>'hidden', 'value'=>$this->name));
-		echo $this->Form->input('MainImage.type', array('type'=>'hidden', 'value'=>'mainimage'));
 	?>
 	<div id='add-photo-input'>
 	<?php
-	echo $this->Form->input('Slides.0.filename', array('label'=>'Image','type'=>'file'));
-	echo $this->Form->input('Slides.0.class', array('type'=>'hidden', 'value'=>$this->name));
-	echo $this->Form->input('Slides.0.type', array('type'=>'hidden', 'value'=>'slideshow'));
+	echo $this->Form->input('Images.0.filename', array('label'=>'Image','type'=>'file'));
+	echo $this->Form->input('Images.0.class', array('type'=>'hidden', 'value'=>$this->name));
+	echo $this->Form->input('Images.0.type', array('type'=>'hidden', 'value'=>'blogimg'));
 	echo '<div id="additional"></div>';	
 	echo '<a id="add-images">Add Image</a>';
 	echo '<script type="text/javascript"> 
@@ -33,6 +29,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Sections'), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Posts'), array('action' => 'index'));?></li>
 	</ul>
 </div>

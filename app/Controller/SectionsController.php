@@ -40,9 +40,10 @@ class SectionsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Section->create();
-			if ($this->Section->save($this->request->data)) {
+			debug($this->request->data);
+			if ($this->Section->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The section has been saved'));
-				$this->redirect(array('action' => 'index'));
+			//	$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The section could not be saved. Please, try again.'));
 			}
@@ -61,13 +62,19 @@ class SectionsController extends AppController {
 			throw new NotFoundException(__('Invalid section'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Section->save($this->request->data)) {
+			if ($this->Section->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The section has been saved'));
+				if (!empty($this->data['todelete'])){
+					foreach (array_keys($this->data['todelete']) as $image){
+						$this->Section->Slides->delete($image);
+					}
+				}
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The section could not be saved. Please, try again.'));
 			}
 		} else {
+			// debug($this->Section->read(null, $id));
 			$this->request->data = $this->Section->read(null, $id);
 		}
 	}

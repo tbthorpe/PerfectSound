@@ -1,5 +1,29 @@
-<div class="sections view">
-<h2><?php  echo __('Section');?></h2>
+<style type="text/css" media="screen">
+	.sectionheader{
+		width:800px;
+		height:400px;
+		background:url(/img/Assets/<?php echo $section['MainImage']['filename']; ?>);
+		color:white;
+		
+	}
+	.sectionname{
+		height:120px;
+		background:url(/img/section/namebg.png);
+		overflow:hidden;
+	}
+	.sectionname h1{
+		color:white;
+		font-size:36px;
+		margin:40px 0 0 20px;
+		background:none;
+	}
+</style>
+<div class="sectionheader">
+	<div class="sectionname">
+		<h1><?php echo $section['Section']['name']; ?></h1>
+	</div>
+</div>
+<div>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -16,19 +40,6 @@
 			<?php echo h($section['Section']['copy']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Mainimage'); ?></dt>
-		<dd>
-			<?php echo h($section['Section']['mainimage']); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Section'), array('action' => 'edit', $section['Section']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Section'), array('action' => 'delete', $section['Section']['id']), null, __('Are you sure you want to delete # %s?', $section['Section']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sections'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Section'), array('action' => 'add')); ?> </li>
-	</ul>
-</div>
+
