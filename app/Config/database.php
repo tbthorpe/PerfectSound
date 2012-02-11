@@ -35,11 +35,11 @@ class DATABASE_CONFIG {
 	function __construct() {
 
 			
-			$this->local = array(
+			$this->production = array(
 				'datasource' => 'Database/Mysql',
 				'persistent' => false,
-				'host' => 'localhost',
-				'login' => 'perfectsound-user',
+				'host' => 'perfectsoundmixingco.ipowermysql.com',
+				'login' => 'perfectsounduser',
 				'password' => 'dogLickBalls',
 				'database' => 'perfectsoundstudio',
 				'prefix' => '',
@@ -49,7 +49,7 @@ class DATABASE_CONFIG {
 			$this->local = array(
 				'datasource' => 'Database/Mysql',
 				'persistent' => false,
-				'host' => '127.0.0.1',
+				'host' => 'localhost',
 				'login' => 'root',
 				'password' => 'root',
 				'database' => 'perfectsound',
