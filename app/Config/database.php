@@ -38,10 +38,10 @@ class DATABASE_CONFIG {
 			$this->production = array(
 				'datasource' => 'Database/Mysql',
 				'persistent' => false,
-				'host' => 'perfectsoundmixingco.ipowermysql.com',
-				'login' => 'perfectsounduser',
-				'password' => 'dogLickBalls',
-				'database' => 'perfectsoundstudio',
+				'host' => 'localhost',
+				'login' => 'pssbuttwad',
+				'password' => 'Hell0DollyStickball',
+				'database' => 'pss',
 				'prefix' => '',
 				'encoding' => 'utf8',
 			);
@@ -61,6 +61,7 @@ class DATABASE_CONFIG {
 		switch($_SERVER['SERVER_NAME']){
 			case ('perfectsoundmixing.com'):
 			case ('www.perfectsoundmixing.com'):
+			case ('50.56.226.115'):
 				$this->default = $this->production;
 			break;
 			case ('perfectsound.local'):
