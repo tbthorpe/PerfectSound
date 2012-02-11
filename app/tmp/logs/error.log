@@ -483,3 +483,20 @@
 2012-02-04 18:38:50 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 /Users/tbt/Sites/perfectsound.local/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-02-11 14:40:13 Error: [MissingConnectionException] Database connection "SQLSTATE[HY000] [2002] No such file or directory" is missing, or could not be created.
+#0 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Datasource/DboSource.php(244): Mysql->connect()
+#1 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(3234): ConnectionManager::getDataSource('default')
+#3 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(1030): Model->setDataSource('default')
+#4 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(3258): Model->setSource('sections')
+#5 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(2591): Model->getDataSource()
+#6 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(2520): Model->_findCount('before', Array)
+#7 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(2478): Model->buildQuery('count', Array)
+#8 /Users/tbt/Sites/perfectsound.local/lib/Cake/Model/Model.php(2408): Model->find('count', Array)
+#9 /Users/tbt/Sites/perfectsound.local/app/Controller/SectionsController.php(29): Model->exists()
+#10 [internal function]: SectionsController->view(1)
+#11 /Users/tbt/Sites/perfectsound.local/lib/Cake/Controller/Controller.php(473): ReflectionMethod->invokeArgs(Object(SectionsController), Array)
+#12 /Users/tbt/Sites/perfectsound.local/lib/Cake/Routing/Dispatcher.php(104): Controller->invokeAction(Object(CakeRequest))
+#13 /Users/tbt/Sites/perfectsound.local/lib/Cake/Routing/Dispatcher.php(86): Dispatcher->_invoke(Object(SectionsController), Object(CakeRequest), Object(CakeResponse))
+#14 /Users/tbt/Sites/perfectsound.local/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
