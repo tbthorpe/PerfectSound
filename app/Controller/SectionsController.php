@@ -8,23 +8,23 @@ App::uses('AppController', 'Controller');
 class SectionsController extends AppController {
 
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
+	public function view($id = null) {
+
+		$this->Section->id = $id;
+		if (!$this->Section->exists()) {
+			throw new NotFoundException(__('Invalid section'));
+		}
+		$this->set('section', $this->Section->read(null, $id));
+	}
+	
+	public function admin_index() {
+		$this->layout='admin';
 		$this->Section->recursive = 0;
 		$this->set('sections', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
+	public function admin_view($id = null) {
+
 		$this->Section->id = $id;
 		if (!$this->Section->exists()) {
 			throw new NotFoundException(__('Invalid section'));
@@ -32,12 +32,8 @@ class SectionsController extends AppController {
 		$this->set('section', $this->Section->read(null, $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+	public function admin_add() {
+		$this->layout='admin';
 		if ($this->request->is('post')) {
 			$this->Section->create();
 			debug($this->request->data);
@@ -50,13 +46,8 @@ class SectionsController extends AppController {
 		}
 	}
 
-/**
- * edit method
- *
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
+		$this->layout='admin';
 		$this->Section->id = $id;
 		if (!$this->Section->exists()) {
 			throw new NotFoundException(__('Invalid section'));

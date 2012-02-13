@@ -110,7 +110,7 @@ date_default_timezone_set('America/New_York');
  *	`manager_index()` and `/manager/controller/index`
  *
  */
-	//Configure::write('Routing.prefixes', array('admin'));
+	Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
