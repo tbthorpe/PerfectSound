@@ -41,9 +41,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<h1>PERFECT SOUND ADMIN</h1>
 			<div id="headernav">
 				<ul>
-					<li><a href="/sections">Site Sections</a></li>
-					<li><a href="/news/adminindex">Blog</a></li>
-					<li><a href="/users">Users</a></li>
+					<li><a href="/admin/sections">Site Sections</a></li>
+					<li><a href="/admin/news">Blog</a></li>
+					<li><a href="/admin/users">Users</a></li>
 					<li><a href="/users/logout">Logout</a></li>
 				</ul>
 			</div>
