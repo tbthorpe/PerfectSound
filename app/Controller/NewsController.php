@@ -8,12 +8,22 @@ App::uses('AppController', 'Controller');
 class NewsController extends AppController {
 	public $helpers = array("BlogImage");
 
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('index');
+	}
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
+		$this->News->recursive = 0;
+		$this->set('news', $this->paginate());
+	}
+	
+	public function admin_index() {
+		$this->layout='admin';
 		$this->News->recursive = 0;
 		$this->set('news', $this->paginate());
 	}
@@ -31,13 +41,23 @@ class NewsController extends AppController {
 		}
 		$this->set('news', $this->News->read(null, $id));
 	}
+	
+	public function admin_view($id = null) {
+		$this->layout='admin';
+		$this->News->id = $id;
+		if (!$this->News->exists()) {
+			throw new NotFoundException(__('Invalid news'));
+		}
+		$this->set('news', $this->News->read(null, $id));
+	}
 
 /**
  * add method
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
+		$this->layout='admin';
 		if ($this->request->is('post')) {
 			$this->News->create();
 			if ($this->News->saveAll($this->request->data)) {
@@ -55,7 +75,8 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
+		$this->layout='admin';
 		$this->News->id = $id;
 		if (!$this->News->exists()) {
 			throw new NotFoundException(__('Invalid post thing'));
@@ -84,7 +105,7 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}

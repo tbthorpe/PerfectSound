@@ -21,7 +21,7 @@
 </style>
 <div class="sectionheader">
 	<div class="sectionname">
-		<h1><?php echo $section['Section']['name']; ?></h1>
+		<h1>ADMIN<?php echo $section['Section']['name']; ?></h1>
 	</div>
 </div>
 <div>

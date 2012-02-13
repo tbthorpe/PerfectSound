@@ -28,6 +28,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->layout='admin';
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -41,6 +42,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function add() {
+		$this->layout='admin';
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -59,6 +61,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		$this->layout='admin';
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -82,6 +85,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
+		$this->layout='admin';
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -97,7 +101,7 @@ class UsersController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	public function login(){
+	public function admin_login(){
 		if($this->request->is('post')){
 			if($this->Auth->login()){
 				$this->redirect($this->Auth->redirect());

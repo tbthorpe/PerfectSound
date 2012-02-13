@@ -5,7 +5,7 @@ class AppController extends Controller{
 				'Session',
 				'Auth'=>array(
 					'loginRedirect'=>array('controller'=>'users','action'=>'index'),
-					'logoutRedirect'=>array('controller'=>'users','action'=>'index'),
+					'logoutRedirect'=>array('controller'=>'sections','action'=>'view',1),
 					'authError'=>'You cannot access this page',
 					'authorize'=>array('Controller')
 					
@@ -17,6 +17,7 @@ class AppController extends Controller{
 	}
 	
 	public function beforeFilter(){
+		$this->Auth->deny('admin_index','admin_edit','admin_add','admin_view','admin_delete');
 		$this->Auth->allow('index','view');
 	}
 

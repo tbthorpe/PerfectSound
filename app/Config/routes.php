@@ -32,7 +32,17 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
 	//SECTIONS
-	Router::connect('/thehouse', array('controller' => 'sections', 'action' => 'view',1));
+	Router::connect('/the-house', array('controller' => 'sections', 'action' => 'view',1));
+	Router::connect('/the-studio', array('controller' => 'sections', 'action' => 'view',2));
+	Router::connect('/the-team', array('controller' => 'sections', 'action' => 'view',5));
+	Router::connect('/the-experience', array('controller' => 'sections', 'action' => 'view',6));
+	Router::connect('/the-rates', array('controller' => 'sections', 'action' => 'view',7));
+	Router::connect('/the-gear', array('controller' => 'sections', 'action' => 'view',8));
+	
+	Router::connect('/perfect-sound-blog', array('controller' => 'news', 'action' => 'index'));
+	
+	// User login - admin stuff for now
+	Router::connect('/admin', array('controller'=>'sections','action'=>'index','admin'=>true));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 
