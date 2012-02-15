@@ -7,15 +7,49 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-	public function beforeFilter(){
-		parent::beforeFilter();
-		$this->Auth->allow('add');
+	public function beforeFilter() {
+	    parent::beforeFilter();
+	    $this->Auth->allow('login','logout');
 	}
-/**
- * index method
- *
- * @return void
- */
+	public function initDB() {
+	    $group = $this->User->Group;
+	    //Allow admins to everything
+	    $group->id = 1;
+	    $this->Acl->allow($group, 'controllers');
+
+	    //allow managers to posts and widgets
+	    $group->id = 2;
+	    $this->Acl->deny($group, 'controllers');
+	    $this->Acl->allow($group, 'controllers/Sections');
+		$this->Acl->allow($group, 'controllers/News');
+	
+	    // $group->id = 3;
+	    // $this->Acl->deny($group, 'controllers');
+	    // $this->Acl->allow($group, 'controllers/Sections');
+
+	    //we add an exit to avoid an ugly "missing views" error message
+	    echo "all done";
+	    exit;
+	}
+
+	public function login() {
+	    if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	            $this->redirect($this->Auth->redirect());
+	        } else {
+	            $this->Session->setFlash('Your username or password was incorrect.');
+	        }
+	    }
+		if ($this->Session->read('Auth.User')) {
+		        $this->Session->setFlash('You are logged in!');
+		        $this->redirect('/', null, false);
+		    }
+	}
+
+	public function logout() {
+	    $this->Session->setFlash('Good-Bye');
+		$this->redirect($this->Auth->logout());
+	}
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -28,7 +62,6 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->layout='admin';
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -42,7 +75,6 @@ class UsersController extends AppController {
  * @return void
  */
 	public function add() {
-		$this->layout='admin';
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -52,6 +84,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
 /**
@@ -61,7 +95,6 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->layout='admin';
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -76,6 +109,8 @@ class UsersController extends AppController {
 		} else {
 			$this->request->data = $this->User->read(null, $id);
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
 /**
@@ -85,7 +120,6 @@ class UsersController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->layout='admin';
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -100,18 +134,4 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	public function admin_login(){
-		if($this->request->is('post')){
-			if($this->Auth->login()){
-				$this->redirect($this->Auth->redirect());
-			}else{
-				$this->Session->setFlash('Username or password was wrong or something');
-			}
-		}
-	}
-	public function logout(){
-		$this->redirect($this->Auth->logout());
-	}
-
 }

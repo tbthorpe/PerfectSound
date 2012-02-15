@@ -6,7 +6,19 @@ App::uses('AppController', 'Controller');
  * @property Section $Section
  */
 class SectionsController extends AppController {
+	public $uses = array('Section','News');
 
+
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('view');
+	}
+	
+	public function index() {
+		$this->layout='admin';
+		$this->Section->recursive = 0;
+		$this->set('sections', $this->paginate());
+	}
 
 	public function view($id = null) {
 
@@ -15,24 +27,11 @@ class SectionsController extends AppController {
 			throw new NotFoundException(__('Invalid section'));
 		}
 		$this->set('section', $this->Section->read(null, $id));
-	}
-	
-	public function admin_index() {
-		$this->layout='admin';
-		$this->Section->recursive = 0;
-		$this->set('sections', $this->paginate());
+		$news = $this->News->getSomeHeadlines(3);
+		$this->set('news',$news);
 	}
 
-	public function admin_view($id = null) {
-
-		$this->Section->id = $id;
-		if (!$this->Section->exists()) {
-			throw new NotFoundException(__('Invalid section'));
-		}
-		$this->set('section', $this->Section->read(null, $id));
-	}
-
-	public function admin_add() {
+	public function add() {
 		$this->layout='admin';
 		if ($this->request->is('post')) {
 			$this->Section->create();
@@ -46,7 +45,7 @@ class SectionsController extends AppController {
 		}
 	}
 
-	public function admin_edit($id = null) {
+	public function edit($id = null) {
 		$this->layout='admin';
 		$this->Section->id = $id;
 		if (!$this->Section->exists()) {

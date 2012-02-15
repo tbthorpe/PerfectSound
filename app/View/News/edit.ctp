@@ -8,22 +8,21 @@
 		echo $this->Form->input('copy');?>
 		
 
-	<?php	if (!empty($this->data['Images'])):?>		
+	<?php 
+		$num_uploads = sizeof($this->data['Images']);
+		if ($num_uploads>0):		
+			for ($i=0; $i<$num_uploads; ++$i){
+				if(isset($this->data['Images'][$i])){ ?>
+					<div style='border:1px solid red;padding:10px;'>
+						Type: <?php echo $this->data['Images'][$i]['type']; ?><br />
+						<img src="<?php echo "/img/Assets/".$this->data['Images'][$i]['filename']; ?>" width=250 /> 
+						<?php echo $this->Form->input("Images.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
+						<?php echo $this->Form->input("Images.$i.id"); ?>
+						<?php echo $this->Form->hidden("Images.$i.type"); ?>
+						<?php echo $this->Form->hidden("Images.$i.class"); ?>
 
-				<?php $num_uploads = sizeof($this->data['Images']);
-					
-					for ($i=0; $i<$num_uploads; ++$i){
-						if(isset($this->data['Images'][$i])){ ?>
-							<div style='border:1px solid red;padding:10px;'>
-								Type: <?php echo $this->data['Images'][$i]['type']; ?><br />
-								<img src="<?php echo "/img/Assets/".$this->data['Images'][$i]['filename']; ?>" width=250 /> 
-								<?php echo $this->Form->input("Images.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
-								<?php echo $this->Form->input("Images.$i.id"); ?>
-								<?php echo $this->Form->hidden("Images.$i.type"); ?>
-								<?php echo $this->Form->hidden("Images.$i.class"); ?>
-
-							<div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['Images'][$i]['id']; ?>]" /></div>
-							</div>
+					<div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['Images'][$i]['id']; ?>]" /></div>
+					</div>
 				<?php	}
 					}
 					
