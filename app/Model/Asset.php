@@ -16,4 +16,11 @@ class Asset extends AppModel {
 	        ),
 	    )
 	);
+	var $validate = array(
+	    'filename' => array(
+	        'Empty' => array(
+	            'check' => false
+	        )
+	    )
+	);
 }

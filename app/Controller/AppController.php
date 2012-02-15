@@ -1,26 +1,21 @@
 <?php
-class AppController extends Controller{
-	
+class AppController extends Controller {
 	public $components = array(
-				'Session',
-				'Auth'=>array(
-					'loginRedirect'=>array('controller'=>'users','action'=>'index'),
-					'logoutRedirect'=>array('controller'=>'sections','action'=>'view',1),
-					'authError'=>'You cannot access this page',
-					'authorize'=>array('Controller')
-					
-				)
-			);
-	
-	public function isAuthorized($user){
-		return true;
-	}
-	
-	public function beforeFilter(){
-		$this->Auth->deny('admin_index','admin_edit','admin_add','admin_view','admin_delete');
-		$this->Auth->allow('index','view');
-	}
+	        'Acl',
+	        'Auth' => array(
+	            'authorize' => array(
+	                'Actions' => array('actionPath' => 'controllers')
+	            )
+	        ),
+	        'Session'
+	    );
+	    public $helpers = array('Html', 'Form', 'Session');
 
+	    public function beforeFilter() {
+	        //Configure AuthComponent
+	        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+	        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+	        $this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
+			$this->Auth->allow('display');
+	    }
 }
-
-

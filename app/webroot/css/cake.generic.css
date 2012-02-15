@@ -22,7 +22,7 @@
 
 /** General Style Info **/
 body {
-	background: #a2a2a2;
+	background: #ffffff;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
@@ -30,8 +30,7 @@ body {
 }
 a {
 	color: #003d4c;
-	text-decoration: underline;
-	font-weight: bold;
+	text-decoration: none;
 }
 a:hover {
 	color: #367889;
@@ -45,7 +44,6 @@ h1, h2, h3, h4 {
 	margin-bottom:0.5em;
 }
 h1 {
-	background:#fff;
 	color: #003d4c;
 	font-size: 100%;
 }
@@ -64,6 +62,7 @@ h4 {
 	color: #993;
 	font-weight: normal;
 }
+ul {list-style-type:none;}
 ul, li {
 	margin: 0 12px;
 }
@@ -80,10 +79,25 @@ p {
 
 #header{
 	padding: 10px 20px;
+	background: #ffffff url('/img/logo.png') no-repeat left;
+	height:71px;
+}
+#header ul{list-style-type:none;margin-top:40px}
+#header ul li{
+	float:right;
+	color:#777777;
+	padding:0;margin:8px;
+	font-size:10px;
+	text-transform:uppercase;
+}
+#header ul li a, #header ul li a:hover, #header ul li a:visited, #header ul li a:active{
+	color:#777777;
+	text-decoration:none;
+	font-weight:lighter;
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	
 	color: #fff;
 	padding: 0px 30px;
 }
@@ -109,6 +123,34 @@ p {
 	clear: both;
 	padding: 6px 10px;
 	text-align: right;
+	background:black;
+	height:165px;
+	margin-top:50px;
+}
+#footer #footercontainer{
+	width:800px;
+	margin:0 auto;
+	height:40px;
+	color:white;
+}
+#footer #footercontainer ul {
+	list-style-type:none;
+	margin:0;
+}
+#footer #footercontainer ul li{
+	float:left;
+	margin:0 10px 0 0;
+}
+#footer #footercontainer ul li a{
+	color:white;
+	font-size:9px;
+	font-weight:normal;
+}
+.copyright{
+	text-align:left;
+	color:#777777;
+	font-size:10px;
+	margin-top:12px;
 }
 
 /** containers **/

@@ -10,7 +10,7 @@ class NewsController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('index');
+		$this->Auth->allow('index', 'view');
 	}
 /**
  * index method
@@ -18,12 +18,6 @@ class NewsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->News->recursive = 0;
-		$this->set('news', $this->paginate());
-	}
-	
-	public function admin_index() {
-		$this->layout='admin';
 		$this->News->recursive = 0;
 		$this->set('news', $this->paginate());
 	}
@@ -56,7 +50,7 @@ class NewsController extends AppController {
  *
  * @return void
  */
-	public function admin_add() {
+	public function add() {
 		$this->layout='admin';
 		if ($this->request->is('post')) {
 			$this->News->create();
@@ -75,7 +69,7 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_edit($id = null) {
+	public function edit($id = null) {
 		$this->layout='admin';
 		$this->News->id = $id;
 		if (!$this->News->exists()) {
@@ -105,7 +99,7 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_delete($id = null) {
+	public function delete($id = null) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}

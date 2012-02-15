@@ -3,9 +3,9 @@
 	.sectionheader{
 		width:800px;
 		height:400px;
-		background:url(/img/Assets/<?php echo $section['MainImage']['filename']; ?>);
+		background:url(/img/Assets/<?php echo $section['MainImage'][0]['filename']; ?>);
 		color:white;
-		
+		position:relative;
 	}
 	.sectionname{
 		height:120px;
@@ -18,26 +18,79 @@
 		margin:40px 0 0 20px;
 		background:none;
 	}
+	#section_news{
+		width:300px;
+		border:1px solid white;
+		/*position:absolute;
+				bottom:0px;right:0px;*/
+		background:red;
+		margin-top:50px;
+		float:right;
+	}
+	#section_news #newsheader{
+		height:30px;
+		color:white;
+		font-weight:bold;
+		font-size:20px;
+		background:rgb(85,85,85);
+	}
+	#section_news .section-news-post{
+		height:40px;
+		background:#777777;
+		padding-left:20px;
+		border-bottom:1px solid white;
+	}
+	#section_news .section-news-post h1{
+		color:white;
+		font-size:16px;
+		font-weight:bold;
+	}
+	.section-copy{
+		float:left;
+		width:390px;
+		margin-right:20px;
+		color:rgb(193,187,187);
+	}
+	.section-copy h1{
+		margin:50px 30px 0 50px;
+		font-weight:bold;
+		color:rgb(193,187,187);
+		font-size:28px;
+	}
+	.section-copy p{
+		margin:50px 0 0 50px;
+	}
+	.section-other{
+		float:left;
+		width:390px;
+	}
 </style>
 <div class="sectionheader">
 	<div class="sectionname">
 		<h1><?php echo $section['Section']['name']; ?></h1>
 	</div>
+	
+</div>
+<div id="section-content">
+	<div class="section-copy">
+		<h1><?php echo $section['Section']['name']; ?></h1>
+		<p><?php echo $section['Section']['copy']; ?></p>
+	</div>
+	<div class="section-other">
+		<div id="section_news">
+			<div id="newsheader">NEWS</div>
+			<?php foreach ($news as $post): ?>
+				<div class="section-news-post">
+					<h1><?php echo $post['News']['title']; ?></h1>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+	<br style="clear:both;">
 </div>
 <div>
-	<dl>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($section['Section']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Copy'); ?></dt>
-		<dd>
-			<?php echo h($section['Section']['copy']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-	<?php $num_uploads = sizeof($section['Slides']);
+	
+	<!-- <?php $num_uploads = sizeof($section['Slides']);
 	if ($num_uploads > 0):
 		for ($i=0; $i<$num_uploads; ++$i){
 			if(isset($section['Slides'][$i])){ ?>
@@ -47,6 +100,6 @@
 	<?php	}
 		}
 				
-		endif; ?>
+		endif; ?> -->
 </div>
 

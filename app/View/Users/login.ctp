@@ -1,7 +1,7 @@
 <h2>Login</h2>
 <?php
-echo $this->Form->create();
-echo $this->Form->input('username');
-echo $this->Form->input('password');
-echo $this->Form->end('Blast off');
+echo $this->Form->create('User', array('url' => array('controller' => 'users', 'action' => 'login')));
+echo $this->Form->input('User.username');
+echo $this->Form->input('User.password');
+echo $this->Form->end('Login');
 ?>
