@@ -1,3 +1,4 @@
+
 <div class="sections form">
 <?php echo $this->Form->create('Section',array('type'=>'file'));?>
 	<fieldset>
@@ -7,31 +8,28 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('copy');?>
 		
-			<img src="<?php echo "/img/Assets/".$this->data['MainImage']['filename']; ?>" width=300 /> 
+			<!-- <img src="<?php echo "/img/Assets/".$this->data['MainImage']['filename']; ?>" width=300 />  -->
 		<?php
-		echo $this->Form->input('MainImage.filename', array('label'=>'Cover Image','type'=>'file'));
-		echo $this->Form->input('MainImage.class', array('type'=>'hidden', 'value'=>$this->name));
-		echo $this->Form->input('MainImage.type', array('type'=>'hidden', 'value'=>'mainimage'));
-		echo $this->Form->input('MainImage.id', array('type'=>'hidden', 'value'=>$this->data['MainImage']['id'])); ?>
+		// echo $this->Form->input('MainImage.filename', array('label'=>'Cover Image','type'=>'file'));
+		// 		echo $this->Form->input('MainImage.class', array('type'=>'hidden', 'value'=>$this->name));
+		// 		echo $this->Form->input('MainImage.type', array('type'=>'hidden', 'value'=>'mainimage'));
+		// 		echo $this->Form->input('MainImage.id', array('type'=>'hidden', 'value'=>$this->data['MainImage']['id'])); ?>
 
-	<?php	if (!empty($this->data['Slides'])):?>		
-
-				<?php $num_uploads = sizeof($this->data['Slides']);
-					
-					for ($i=0; $i<$num_uploads; ++$i){
-						if(isset($this->data['Slides'][$i])){ ?>
-							<div style='border:1px solid red;padding:10px;'>
-								Type: <?php echo $this->data['Slides'][$i]['type']; ?><br />
-								<img src="<?php echo "/img/Assets/".$this->data['Slides'][$i]['filename']; ?>" width=250 /> 
-								<?php echo $this->Form->input("Slides.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
-								<?php echo $this->Form->input("Slides.$i.id"); ?>
-								<?php echo $this->Form->hidden("Slides.$i.type"); ?>
-								<?php echo $this->Form->hidden("Slides.$i.class"); ?>
-
-							<div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['Slides'][$i]['id']; ?>]" /></div>
-							</div>
-				<?php	}
-					}
+		<?php $num_uploads = sizeof($this->data['MainImage']);
+		if ($num_uploads > 0):
+			for ($i=0; $i<$num_uploads; ++$i){
+				if(isset($this->data['MainImage'][$i])){ ?>
+					<div style='border:1px solid red;padding:10px;'>
+						Type: <?php echo $this->data['MainImage'][$i]['type']; ?><br />
+						<img src="<?php echo "/img/Assets/".$this->data['MainImage'][$i]['filename']; ?>" width=250 /> 
+						<?php echo $this->Form->input("MainImage.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
+						<?php echo $this->Form->input("MainImage.$i.id"); ?>
+						<?php echo $this->Form->hidden("MainImage.$i.type"); ?>
+						<?php echo $this->Form->hidden("MainImage.$i.class"); ?>
+					<div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['MainImage'][$i]['id']; ?>]" /></div>
+					</div>
+		<?php	}
+			}
 					
 			endif; 
 
@@ -41,7 +39,7 @@
 					$("#add-images").click(function(){
 						var children = $("#additional").children().length;
 						var next = 1 + children + '.$num_uploads.';
-						$("#additional").append(\'<div class="input file"><input type="file" name="data[Slides][\' + next + \'][filename]" id="Slides\' + next + \'Filename"><input type="hidden" name="data[Slides][\' + next + \'][class]" value="'.$this->name.'" id="Slides\' + next + \'Class"><input type="hidden" name="data[Slides][\' + next + \'][type]" value="slideshow" id="Slides\' + next + \'Type"></div>\');
+						$("#additional").append(\'<div class="input file"><input type="file" name="data[MainImage][\' + next + \'][filename]" id="MainImage\' + next + \'Filename"><input type="hidden" name="data[MainImage][\' + next + \'][class]" value="'.$this->name.'" id="MainImage\' + next + \'Class"><input type="hidden" name="data[MainImage][\' + next + \'][type]" value="mainimage" id="MainImage\' + next + \'Type"></div>\');
 					});
 				 </script>';
 
