@@ -23,7 +23,7 @@
 		background:none;
 	}
 	#section_news{
-		height:200px;width:300px;
+		height:130px;width:300px;
 		border:1px solid white;
 		position:absolute;
 		bottom:0px;right:0px;
@@ -66,7 +66,7 @@
 	</div>
 
 	<div class="sectionname">
-		<h1><?php echo $asdf; ?></h1>
+		<h1>Perfect Sound Studios</h1>
 	</div>
 
 		<div id="section_news">
@@ -79,15 +79,6 @@
 		</div>
 </div>
 <div>
-	<dl>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			asdf
-		</dd>
-		<dt><?php echo __('Copy'); ?></dt>
-		<dd>
-			lorem ipsum
-		</dd>
-	</dl>
+THIS IS WHERE STUFF MIGHT GO!
 	
 </div>

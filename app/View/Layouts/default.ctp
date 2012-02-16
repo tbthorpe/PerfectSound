@@ -80,10 +80,6 @@
 					<div style="width:200px;color:black;height:80px;">Dynamite is free!</div>
 					<div style="width:200px;height:80px;color:black;">Listen and learn.</div>
 			</div>
-			<div class="controls">
-			    <a href="#" class="prev">Prev Page</a> |
-			    <a href="#" class="next">Next Page</a>
-			</div>
 		
 		<div id="sociallinks">
 			
