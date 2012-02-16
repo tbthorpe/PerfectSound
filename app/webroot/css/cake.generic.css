@@ -125,7 +125,6 @@ p {
 	text-align: right;
 	background:black;
 	height:165px;
-	margin-top:50px;
 }
 #footer #footercontainer{
 	width:800px;
@@ -151,6 +150,29 @@ p {
 	color:#777777;
 	font-size:10px;
 	margin-top:12px;
+}
+#abovefooter{
+	width:800px;
+	margin:0 auto;
+}
+#weirdnav{
+	height:120px;
+	background:#a2a2a2;
+}
+#weirdnav ul li div{
+	color:#111111;
+}
+#sociallinks{
+	width:300px;
+	float:left;
+	background:#666666;
+	height:100px;
+}
+#meettheteam{
+	width:500px;
+	float:left;
+	background:#818181;
+	height:100px;
 }
 
 /** containers **/
