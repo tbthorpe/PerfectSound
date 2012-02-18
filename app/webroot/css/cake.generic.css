@@ -112,6 +112,7 @@ p {
 	background: #003d4c;
 	text-decoration: underline;
 }
+#header #logolink{display:block;height:71px;width:125px;float:left;}
 #content{
 	background: #fff;
 	clear: both;
@@ -125,7 +126,6 @@ p {
 	text-align: right;
 	background:black;
 	height:165px;
-	margin-top:50px;
 }
 #footer #footercontainer{
 	width:800px;
@@ -151,6 +151,32 @@ p {
 	color:#777777;
 	font-size:10px;
 	margin-top:12px;
+}
+#abovefooter{
+	width:800px;
+	margin:50px auto 0 auto;
+}
+#abovefooter #abovehead{height:40px;background:#333333;}
+.footerwidget{color:black;width:200px;height:100px;border:1px solid black;}
+
+#weirdnav{
+	height:120px;
+	background:#a2a2a2;
+}
+#weirdnav ul li div{
+	color:#111111;
+}
+#sociallinks{
+	width:300px;
+	float:left;
+	background:#666666;
+	height:100px;
+}
+#meettheteam{
+	width:500px;
+	float:left;
+	background:url(/img/buttheads.png) no-repeat;
+	height:100px;
 }
 
 /** containers **/

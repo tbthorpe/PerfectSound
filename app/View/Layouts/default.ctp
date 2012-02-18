@@ -8,13 +8,39 @@
 	<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<?php
 		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('jcarousel');
+		echo $this->Html->css('orbit-1.2.3');
+		echo $this->Html->script('jquery.bxSlider.min');
+		echo $this->Html->script('jquery.easing.1.3');
+		echo $this->Html->script('jcarousel');
+		echo $this->Html->script('jc2');
+		echo $this->Html->script('lemmon-slider');
+		echo $this->Html->script('jquery.orbit-1.2.3.min');
 		echo $scripts_for_layout;
 	?>
+	<style>
+	.slider    { overflow:hidden; position:relative; }
+	.slider ul { margin:0; padding:0; }
+	.slider li { float:left; margin:0 5px 0 0; list-style:none; color:#444444;}
+	/* IE6 issues */
+	.slider ul { width:100%; }
+	</style>
+	<script type="text/javascript">
+	     // $(window).load(function() {
+	     // 	         $( '#slider1' ).lemmonSlider();
+	     // 	     });
+	$(document).ready(function(){
+		$('#slider1').bxSlider({
+		    displaySlideQty: 4,
+		    moveSlideQty: 4
+		  });
+	})
+	</script>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-
+			<a href="/" id="logolink"></a>
 			<div id="headernav">
 				<ul>
 					<li><a href="/perfect-sound-blog">The Blog</a></li>
@@ -36,6 +62,38 @@
 
 		</div>
 		
+	</div>
+	<div id="abovefooter">
+			<div id="abovehead"></div>
+			<div id="slider1" class="slider">
+				<?php foreach($widgets as $widget): ?>
+					<div class='footerwidget'>
+						<h4><?= $widget['Widget']['title']?></h4>
+						<p><?= $widget['Widget']['text']?></p>
+						<p><a href="<?= $widget['Widget']['linkurl']?>">link&rarr;</a></p>
+					</div>
+				<?php endforeach; ?>
+					<!-- <div style="color:black;width:200px;height:80px;">This is something else</div>
+					<div style="color:black;width:200px;height:80px;">This is also something</div>
+					<div style="width:200px;color:black;height:80px;">So Many things</div>
+					<div style="width:200px;height:80px;color:black;">It's getting a little crazy</div>
+					<div style="color:black;width:200px;height:80px;">Someone call the cookie cake patrol</div>
+					<div style="width:200px;color:black;height:80px;">Two tubs of frosting!</div>
+					<div style="width:200px;height:80px;color:black;">Plasitc penguin mask!</div>
+					<div style="color:black;width:200px;height:80px;">One art! JUST ONE.</div>
+					<div style="width:200px;color:black;height:80px;">We need something to make us slide</div>
+					<div style="width:200px;height:80px;color:black;">Butter is best!</div>
+					<div style="width:200px;color:black;height:80px;">Dynamite is free!</div>
+					<div style="width:200px;height:80px;color:black;">Listen and learn.</div> -->
+			</div>
+		
+		<div id="sociallinks">
+			
+		</div>
+		<div id="meettheteam">
+			
+		</div>
+		<div style="clear:both;"></div>
 	</div>
 	<div id="footer">
 		<div id="footercontainer">

@@ -22,28 +22,28 @@
 		margin:40px 0 0 20px;
 		background:none;
 	}
-	#section_news{
+	#homepage_news{
 		height:130px;width:300px;
 		border:1px solid white;
 		position:absolute;
 		bottom:0px;right:0px;
-		background:red;
 		z-index:1001;
+		height:155px;
 	}
-	#section_news #newsheader{
+	#homepage_news #newsheader{
 		height:30px;
 		color:white;
 		font-weight:bold;
 		font-size:20px;
 		background:rgb(85,85,85);
 	}
-	#section_news .section-news-post{
+	#homepage_news .section-news-post{
 		height:40px;
 		background:#777777;
 		padding-left:20px;
 		border-bottom:1px solid white;
 	}
-	#section_news .section-news-post h1{
+	#homepage_news .section-news-post h1{
 		color:white;
 		font-size:16px;
 		font-weight:bold;
@@ -55,28 +55,29 @@
 </style>
 <script type="text/javascript">
      $(window).load(function() {
-         $('#homeslider').orbit({timer:false});
+         $('#homeslider').orbit({timer:false,bullets:true,directionalNav:false});
      });
 </script>
 <div class="sectionheader">
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
-		<img src="/img/homepage-1.jpg">
-		<img src="/img/homepage-2.jpg">
-		<img src="/img/homepage-3.jpg">
+		<?php foreach($section['MainImage'] as $img): ?>
+			<img src="/img/Assets/<?php echo $img['filename']; ?>">
+		<?php endforeach; ?>
 	</div>
 
 	<div class="sectionname">
 		<h1>Perfect Sound Studios</h1>
+		<!-- <ul class="orbit-bullets"><li class="">1</li><li class="">2</li><li class="active">3</li></ul> -->
 	</div>
 
-		<div id="section_news">
-			<div id="newsheader">NEWS</div>
-			<?php foreach ($news as $post): ?>
-				<div class="section-news-post">
-					<h1><?php echo $post['News']['title']; ?></h1>
-				</div>
-			<?php endforeach; ?>
-		</div>
+	<div id="homepage_news">
+		<div id="newsheader">NEWS</div>
+		<?php foreach ($news as $post): ?>
+			<div class="section-news-post">
+				<h1><?php echo $post['News']['title']; ?></h1>
+			</div>
+		<?php endforeach; ?>
+	</div>
 </div>
 <div>
 THIS IS WHERE STUFF MIGHT GO!

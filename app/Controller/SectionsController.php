@@ -11,7 +11,7 @@ class SectionsController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('view');
+		$this->Auth->allow('view','homepage');
 	}
 	
 	public function index() {
@@ -30,6 +30,16 @@ class SectionsController extends AppController {
 		$news = $this->News->getSomeHeadlines(3);
 		$this->set('news',$news);
 	}
+	
+	public function homepage(){
+		$this->Section->id = 9;
+		if (!$this->Section->exists()) {
+			throw new NotFoundException(__('Invalid section'));
+		}
+		$this->set('section', $this->Section->read(null,9));
+		$news = $this->News->getSomeHeadlines(3);
+		$this->set('news',$news);
+	}
 
 	public function add() {
 		$this->layout='admin';
@@ -38,7 +48,7 @@ class SectionsController extends AppController {
 			debug($this->request->data);
 			if ($this->Section->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The section has been saved'));
-			//	$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The section could not be saved. Please, try again.'));
 			}
