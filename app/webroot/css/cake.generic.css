@@ -178,7 +178,13 @@ p {
 	background:url(/img/buttheads.png) no-repeat;
 	height:100px;
 }
-
+#meettheteam a{
+	display:block;
+	height:29px;
+	width:177px;
+	margin:50px 0 0 250px;
+	background:url(/img/meetteamlink.png) no-repeat 0 0;
+}
 /** containers **/
 div.form,
 div.index,
