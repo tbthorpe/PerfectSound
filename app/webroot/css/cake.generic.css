@@ -112,6 +112,7 @@ p {
 	background: #003d4c;
 	text-decoration: underline;
 }
+#header #logolink{display:block;height:71px;width:125px;float:left;}
 #content{
 	background: #fff;
 	clear: both;
@@ -153,8 +154,11 @@ p {
 }
 #abovefooter{
 	width:800px;
-	margin:0 auto;
+	margin:50px auto 0 auto;
 }
+#abovefooter #abovehead{height:40px;background:#333333;}
+.footerwidget{color:black;width:200px;height:100px;border:1px solid black;}
+
 #weirdnav{
 	height:120px;
 	background:#a2a2a2;
@@ -171,7 +175,7 @@ p {
 #meettheteam{
 	width:500px;
 	float:left;
-	background:#818181;
+	background:url(/img/buttheads.png) no-repeat;
 	height:100px;
 }
 

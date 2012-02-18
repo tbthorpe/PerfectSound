@@ -40,7 +40,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-
+			<a href="/" id="logolink"></a>
 			<div id="headernav">
 				<ul>
 					<li><a href="/perfect-sound-blog">The Blog</a></li>
@@ -64,10 +64,16 @@
 		
 	</div>
 	<div id="abovefooter">
-		
+			<div id="abovehead"></div>
 			<div id="slider1" class="slider">
-			        <div style="color:black;width:200px;height:80px;">This is something</div>
-					<div style="color:black;width:200px;height:80px;">This is something else</div>
+				<?php foreach($widgets as $widget): ?>
+					<div class='footerwidget'>
+						<h4><?= $widget['Widget']['title']?></h4>
+						<p><?= $widget['Widget']['text']?></p>
+						<p><a href="<?= $widget['Widget']['linkurl']?>">link&rarr;</a></p>
+					</div>
+				<?php endforeach; ?>
+					<!-- <div style="color:black;width:200px;height:80px;">This is something else</div>
 					<div style="color:black;width:200px;height:80px;">This is also something</div>
 					<div style="width:200px;color:black;height:80px;">So Many things</div>
 					<div style="width:200px;height:80px;color:black;">It's getting a little crazy</div>
@@ -78,7 +84,7 @@
 					<div style="width:200px;color:black;height:80px;">We need something to make us slide</div>
 					<div style="width:200px;height:80px;color:black;">Butter is best!</div>
 					<div style="width:200px;color:black;height:80px;">Dynamite is free!</div>
-					<div style="width:200px;height:80px;color:black;">Listen and learn.</div>
+					<div style="width:200px;height:80px;color:black;">Listen and learn.</div> -->
 			</div>
 		
 		<div id="sociallinks">

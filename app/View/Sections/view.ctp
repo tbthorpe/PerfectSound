@@ -7,10 +7,15 @@
 		color:white;
 		position:relative;
 	}
+	.sectionheader #homeslider ul{margin:0;}
 	.sectionname{
 		height:120px;
 		background:url(/img/section/namebg.png);
 		overflow:hidden;
+		position:absolute;
+		bottom:0px;
+		width:100%;
+		z-index:1000;
 	}
 	.sectionname h1{
 		color:white;
@@ -64,8 +69,20 @@
 		float:left;
 		width:390px;
 	}
+	#homeslider { background: #000 url('orbit/loading.gif') no-repeat center center; overflow: hidden; },  
+	#homeslider img { display: none; }
 </style>
+<script type="text/javascript">
+     $(window).load(function() {
+         $('#homeslider').orbit({timer:false,bullets:true,directionalNav:false});
+     });
+</script>
 <div class="sectionheader">
+	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
+		<?php foreach($section['MainImage'] as $img): ?>
+			<img src="/img/Assets/<?php echo $img['filename']; ?>">
+		<?php endforeach; ?>
+	</div>
 	<div class="sectionname">
 		<h1><?php echo $section['Section']['name']; ?></h1>
 	</div>
