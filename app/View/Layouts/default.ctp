@@ -33,6 +33,7 @@
 		position:absolute;
 		top:-25px;
 		right:-35px;
+		
 	}
 	</style>
 	<script type="text/javascript">
@@ -48,6 +49,9 @@
 	</script>
 </head>
 <body>
+	<div id="wrapper" style="overflow:hidden;">
+		
+	
 	<div id="container">
 		<div id="header">
 			<a href="/" id="logolink"></a>
@@ -123,6 +127,7 @@
 				<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
 			</div>
 		</div>
+	</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
