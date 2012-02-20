@@ -24,6 +24,17 @@
 	.slider li { float:left; margin:0 5px 0 0; list-style:none; color:#444444;}
 	/* IE6 issues */
 	.slider ul { width:100%; }
+	.bx-prev{
+		position:absolute;
+		top:-25px;
+		left:-35px;
+	}
+	.bx-next{
+		position:absolute;
+		top:-25px;
+		right:-35px;
+		
+	}
 	</style>
 	<script type="text/javascript">
 	     // $(window).load(function() {
@@ -38,6 +49,9 @@
 	</script>
 </head>
 <body>
+	<div id="wrapper" style="overflow:hidden;">
+		
+	
 	<div id="container">
 		<div id="header">
 			<a href="/" id="logolink"></a>
@@ -65,7 +79,8 @@
 	</div>
 	<div id="abovefooter">
 			<div id="abovehead"></div>
-			<div id="slider1" class="slider">
+			<div>
+			<div id="slider1" class="slider" style="float:left;">
 				<?php foreach($widgets as $widget): ?>
 					<div class='footerwidget'>
 						<h4><?= $widget['Widget']['title']?></h4>
@@ -91,7 +106,7 @@
 			
 		</div>
 		<div id="meettheteam">
-			
+			<a href="/the-team"></a>
 		</div>
 		<div style="clear:both;"></div>
 	</div>
@@ -112,6 +127,7 @@
 				<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
 			</div>
 		</div>
+	</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>

@@ -52,13 +52,23 @@
 
 	           background: #000 url('orbit/loading.gif') no-repeat center center; overflow: hidden; },  
 	     #homeslider img { display: none; }
+	#homesliderbg{
+		height:200px;
+		background:#444444;
+		width:5000px;
+		margin-left:-2000px;
+		position:absolute;
+		top:40px;
+		z-index:-100;
+	}
 </style>
 <script type="text/javascript">
      $(window).load(function() {
-         $('#homeslider').orbit({timer:false,bullets:true,directionalNav:false});
+         $('#homeslider').orbit({timer:true,bullets:true,directionalNav:false});
      });
 </script>
 <div class="sectionheader">
+	<div id="homesliderbg"></div>
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
 		<?php foreach($section['MainImage'] as $img): ?>
 			<img src="/img/Assets/<?php echo $img['filename']; ?>">
