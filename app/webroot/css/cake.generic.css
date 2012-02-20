@@ -154,9 +154,29 @@ p {
 	width:800px;
 	margin:50px auto 0 auto;
 }
-#abovefooter #abovehead{height:40px;background:#333333;}
-.footerwidget{color:black;width:200px;height:100px;border:1px solid black;}
-
+#abovefooter #abovehead{height:40px;background:rgb(87,86,84);margin-bottom:12px;}
+.footerwidget{color:black;width:199px;height:100px;border-left:1px solid rgb(226,226,226);border-bottom:1px solid rgb(226,226,226);}
+.footerwidget h4,.footerwidget p{margin-left:15px;}
+.bx-prev{
+	position:absolute;
+	top:20px;
+	left:-16px;
+	width:0px;
+	padding-left:16px;
+	background:url(/img/back.png) no-repeat;
+	overflow:hidden;
+	height:34px;
+}
+.bx-next{
+	position:absolute;
+	top:20px;
+	right:-16px;
+	width:0px;
+	padding-left:16px;
+	background:url(/img/forth.png) no-repeat;
+	overflow:hidden;
+	height:34px;
+}
 #weirdnav{
 	height:120px;
 	background:#a2a2a2;
@@ -167,7 +187,6 @@ p {
 #sociallinks{
 	width:300px;
 	float:left;
-	background:#666666;
 	height:100px;
 }
 #meettheteam{

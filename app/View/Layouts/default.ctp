@@ -24,17 +24,7 @@
 	.slider li { float:left; margin:0 5px 0 0; list-style:none; color:#444444;}
 	/* IE6 issues */
 	.slider ul { width:100%; }
-	.bx-prev{
-		position:absolute;
-		top:-25px;
-		left:-35px;
-	}
-	.bx-next{
-		position:absolute;
-		top:-25px;
-		right:-35px;
-		
-	}
+
 	</style>
 	<script type="text/javascript">
 	     // $(window).load(function() {
