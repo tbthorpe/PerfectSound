@@ -2,6 +2,7 @@
 	.sectionheader{
 		width:800px;
 		height:400px;
+		overflow:hidden;
 		/*background:url(/img/homepage-1.jpg) no-repeat;*/
 		color:white;
 		position:relative;
@@ -45,7 +46,7 @@
 	</div>
 </div>
 <div>
-<div id="home-dotted"></div>
-<div id="home-solid"></div>
+<!-- <div id="home-dotted"></div>
+<div id="home-solid"></div> -->
 	
 </div>
