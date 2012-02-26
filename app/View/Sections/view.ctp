@@ -78,6 +78,7 @@
      });
 </script>
 <div class="sectionheader">
+	<div id="homesliderbg"></div>
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
 		<?php foreach($section['MainImage'] as $img): ?>
 			<img src="/img/Assets/<?php echo $img['filename']; ?>">

@@ -1,23 +1,19 @@
 <div id="allposts">
-	<h2><?php echo __('Blog Posts, bitch.');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('title');?></th>
-	</tr>
+	<h2><?php echo __('What\'s going on at Perfect Sound');?></h2>
 	<?php
 	foreach ($news as $post): ?>
-	<tr>
-		<td><?php echo h($post['News']['created']); ?>&nbsp;</td>
-		<td><?php echo h($post['News']['title']); ?>&nbsp;</td>
+		<div class="news-post">
+			<h3><?php echo h($post['News']['title']); ?></h3>	
+			<p class="news-date"><?php echo date('m-d-Y',strtotime($post['News']['created'])); ?></p>
+			<p class="news-copy"><?php echo $this->BlogImage->imageifyPost($post['News']['copy'],$post['Images']); ?></p>
+		</div>
 		
-	</tr>
-<?php endforeach; ?>
-	</table>
+	<?php endforeach; ?>
+	
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Page {:page} of {:pages}, showing {:current} posts of {:count}, starting on {:start}, ending on {:end}')
 	));
 	?>	</p>
 

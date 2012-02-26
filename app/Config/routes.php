@@ -39,7 +39,7 @@
 	Router::connect('/the-rates', array('controller' => 'sections', 'action' => 'view',7));
 	Router::connect('/the-gear', array('controller' => 'sections', 'action' => 'view',8));
 	
-	Router::connect('/perfect-sound-blog', array('controller' => 'news', 'action' => 'index'));
+	Router::connect('/perfect-sound-news', array('controller' => 'news', 'action' => 'index'));
 	
 	// User login - admin stuff for now
 	Router::connect('/admin', array('controller'=>'sections','action'=>'index','admin'=>true));

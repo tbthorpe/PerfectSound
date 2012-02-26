@@ -23,44 +23,44 @@
 		background:none;
 	}
 	#homepage_news{
-		height:130px;width:300px;
-		border:1px solid white;
+		width:300px;
+		border-left:1px solid rgb(85,85,85);
+		border-right:1px solid rgb(85,85,85);
 		position:absolute;
 		bottom:0px;right:0px;
 		z-index:1001;
-		height:155px;
+		-moz-box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
+		box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
 	}
 	#homepage_news #newsheader{
 		height:30px;
 		color:white;
 		font-weight:bold;
 		font-size:20px;
+		padding-left:20px;
 		background:rgb(85,85,85);
 	}
 	#homepage_news .section-news-post{
-		height:40px;
+/*		height:40px;*/
 		background:#777777;
 		padding-left:20px;
 		border-bottom:1px solid white;
+	}
+	#homepage_news .section-news-post:last-child{
+		border-bottom:0px;
 	}
 	#homepage_news .section-news-post h1{
 		color:white;
 		font-size:16px;
 		font-weight:bold;
+		margin:0;
 	}
 	#homeslider { 
 
 	           background: #000 url('orbit/loading.gif') no-repeat center center; overflow: hidden; },  
 	     #homeslider img { display: none; }
-	#homesliderbg{
-		height:200px;
-		background:#444444;
-		width:5000px;
-		margin-left:-2000px;
-		position:absolute;
-		top:40px;
-		z-index:-100;
-	}
+
 </style>
 <script type="text/javascript">
      $(window).load(function() {
@@ -82,8 +82,10 @@
 
 	<div id="homepage_news">
 		<div id="newsheader">NEWS</div>
+		<?php $i=1; ?>
 		<?php foreach ($news as $post): ?>
 			<div class="section-news-post">
+				<?php echo $i."."; $i++; ?>
 				<h1><?php echo $post['News']['title']; ?></h1>
 			</div>
 		<?php endforeach; ?>

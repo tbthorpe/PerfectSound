@@ -47,13 +47,13 @@
 			<a href="/" id="logolink"></a>
 			<div id="headernav">
 				<ul>
-					<li><a href="/perfect-sound-blog">The Blog</a></li>
+					<li><a href="/perfect-sound-news">The News</a></li>
 					<li><a href="/the-gear">The Gear</a></li>
 					<li><a href="/the-rates">The Rates</a></li>
 					<li><a href="/the-experience ">The Experience</a></li>
 					<li><a href="/the-team">The Team</a></li>
-					<li><a href="/the-studio">The Studio</a></li>
 					<li><a href="/the-house">The House</a></li>
+					<li><a href="/the-studio">The Studio</a></li>
 					<br style="clear:both;">
 				</ul>
 			</div>
