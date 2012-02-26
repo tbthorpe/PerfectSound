@@ -88,19 +88,19 @@
 				<?php endforeach; ?>
 			</div>
 		
-		<div id="sociallinks">
-			<ul>
-				<li><img src="/img/twitter.png"></li>
-				<li><img src="/img/facebook.png"></li>
-				<li><img src="/img/googleplus.png"></li>
-				<li><img src="/img/email.png"></li>
-			</ul>
-		</div>
-		<div id="meettheteam">
-			<a href="/the-team"></a>
-		</div>
-		<div style="clear:both;"></div>
-	</div>
+		<!-- <div id="sociallinks">
+				<ul>
+					<li><img src="/img/twitter.png"></li>
+					<li><img src="/img/facebook.png"></li>
+					<li><img src="/img/googleplus.png"></li>
+					<li><img src="/img/email.png"></li>
+				</ul>
+			</div>
+			<div id="meettheteam">
+				<a href="/the-team"></a>
+			</div>
+			<div style="clear:both;"></div>
+		</div> -->
 	<div id="footer">
 		<div id="footercontainer">
 			<div id="footernav">
