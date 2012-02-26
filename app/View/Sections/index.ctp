@@ -4,7 +4,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('copy');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -12,7 +11,6 @@
 	<tr>
 		<td><?php echo h($section['Section']['id']); ?>&nbsp;</td>
 		<td><?php echo h($section['Section']['name']); ?>&nbsp;</td>
-		<td><?php echo h($section['Section']['copy']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $section['Section']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $section['Section']['id'])); ?>
