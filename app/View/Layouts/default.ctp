@@ -73,27 +73,26 @@
 			<div id="slider1" class="slider" style="float:left;">
 				<?php foreach($widgets as $widget): ?>
 					<div class='footerwidget'>
-						<h4><?= $widget['Widget']['title']?></h4>
-						<p><?= $widget['Widget']['text']?></p>
-						<p><a href="<?= $widget['Widget']['linkurl']?>">link&rarr;</a></p>
+						<?php if (empty($widget['Widget']['videoembed'])): ?>
+							<h4><?= $widget['Widget']['title']?></h4>
+							<p class="widget-text"><?= $widget['Widget']['text']?></p>
+							<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
+						<?php else: ?>
+							<div class="vidcontainer">
+								<iframe width="120" height="80" src="http://www.youtube.com/embed/<?php echo $widget['Widget']['videoembed'] ?>?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+							</div>
+						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
-					<!-- <div style="color:black;width:200px;height:80px;">This is something else</div>
-					<div style="color:black;width:200px;height:80px;">This is also something</div>
-					<div style="width:200px;color:black;height:80px;">So Many things</div>
-					<div style="width:200px;height:80px;color:black;">It's getting a little crazy</div>
-					<div style="color:black;width:200px;height:80px;">Someone call the cookie cake patrol</div>
-					<div style="width:200px;color:black;height:80px;">Two tubs of frosting!</div>
-					<div style="width:200px;height:80px;color:black;">Plasitc penguin mask!</div>
-					<div style="color:black;width:200px;height:80px;">One art! JUST ONE.</div>
-					<div style="width:200px;color:black;height:80px;">We need something to make us slide</div>
-					<div style="width:200px;height:80px;color:black;">Butter is best!</div>
-					<div style="width:200px;color:black;height:80px;">Dynamite is free!</div>
-					<div style="width:200px;height:80px;color:black;">Listen and learn.</div> -->
 			</div>
 		
 		<div id="sociallinks">
-			
+			<ul>
+				<li><img src="/img/twitter.png"></li>
+				<li><img src="/img/facebook.png"></li>
+				<li><img src="/img/googleplus.png"></li>
+				<li><img src="/img/email.png"></li>
+			</ul>
 		</div>
 		<div id="meettheteam">
 			<a href="/the-team"></a>
