@@ -154,7 +154,7 @@ p {
 	width:800px;
 	margin:50px auto 0 auto;
 }
-#abovefooter #abovehead{height:40px;background:rgb(87,86,84);margin-bottom:12px;}
+#abovefooter #abovehead{height:15px;background:rgb(87,86,84);margin-bottom:0;padding-left:20px;}
 .footerwidget{color:black;width:199px;height:100px;border-left:1px solid rgb(226,226,226);border-bottom:1px solid rgb(226,226,226);}
 .footerwidget h4,.footerwidget p{margin-left:15px;}
 .bx-prev{
@@ -202,6 +202,18 @@ p {
 	margin:50px 0 0 250px;
 	background:url(/img/meetteamlink.png) no-repeat 0 0;
 }
+
+
+#homesliderbg{
+	height:200px;
+	background:#a2a2a2;
+	width:5000px;
+	margin-left:-2000px;
+	position:absolute;
+	top:40px;
+	z-index:-100;
+}
+
 /** containers **/
 div.form,
 div.index,
@@ -813,3 +825,10 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+/* BLOG PAGE */
+#allposts h2{margin-bottom:40px;}
+#allposts .news-post{border-bottom:1px dotted #ff0000;margin-bottom:20px;}
+#allposts .news-post h3{color:#444444;font-weight:bold;font-family:'lucida grande',verdana,helvetica,arial,sans-serif;margin-bottom:5px;}
+#allposts .news-post p.news-date{font-weight:lighter;margin-top:0;margin-bottom:10px;font-size:8px;color:#ff0000;}
+#allposts .news-post p.news-copy{margin-bottom:20px;}

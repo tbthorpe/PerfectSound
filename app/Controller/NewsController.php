@@ -10,7 +10,7 @@ class NewsController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'view');
+		$this->Auth->allow('index');
 	}
 /**
  * index method
@@ -18,7 +18,8 @@ class NewsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->News->recursive = 0;
+		//$this->News->recursive = 0;
+		$this->paginate = array('order'=>array('News.created'=>'DESC'));
 		$this->set('news', $this->paginate());
 	}
 
