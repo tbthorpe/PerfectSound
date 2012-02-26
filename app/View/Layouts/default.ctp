@@ -37,6 +37,8 @@
 		  });
 	})
 	</script>
+	<script type="text/javascript" src="http://use.typekit.com/dpi1gos.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 	<div id="wrapper" style="overflow:hidden;">
