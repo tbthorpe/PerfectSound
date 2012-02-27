@@ -117,6 +117,10 @@
 				</ul>
 				<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
 			</div>
+			<div id="socialicons">
+				<a href="#"><img src="/img/twittericon.png"></a>
+				<a href="#"><img src="/img/facebookicon.png"></a>
+			</div>
 		</div>
 	</div>
 	</div>
