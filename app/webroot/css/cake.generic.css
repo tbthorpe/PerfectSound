@@ -150,6 +150,17 @@ p {
 	font-size:9px;
 	font-weight:normal;
 }
+#footer #footercontainer #footernav{
+	float:left;
+}
+#footer #footercontainer #socialicons{
+	float:right;
+	color:white;
+	margin-right:20px;
+}
+#footer #footercontainer #socialicons img{
+	height:18px;width:18px;
+}
 .copyright{
 	text-align:left;
 	color:#777777;
