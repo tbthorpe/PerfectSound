@@ -78,9 +78,10 @@ p {
 }
 
 #header{
-	padding: 10px 0 10px 20px;
+	padding: 10px 0 10px 0px;
 	background: #ffffff url('/img/pslogo.gif') no-repeat left;
 	background-size:263px 70px;
+	background-position-x:-13px;
 	height:71px;
 }
 #header ul{list-style-type:none;margin-top:40px;margin-right:0;}
@@ -116,7 +117,7 @@ p {
 	background: #003d4c;
 	text-decoration: underline;
 }
-#header #logolink{display:block;height:71px;width:125px;float:left;}
+#header #logolink{display:block;height:71px;width:240px;float:left;}
 #content{
 	background: #fff;
 	clear: both;
@@ -988,20 +989,35 @@ pre {
 }
 #homepage_news .section-news-post{
 	color:white;
-
-	padding-left:20px;
+	padding-left:15px;
 	border-bottom:1px solid white;
-	margin-bottom:5px;
 }
 #homepage_news .section-news-post:last-child{
 	border-bottom:0px;
 	margin-bottom:0;
 }
+#homepage_news .section-news-post h2{
+	color:rgb(220,65,45);
+	font-size:24px;
+	font-weight:bold;
+	margin:0;
+	float:left;
+	background:none;
+	margin:4px 0;
+	line-height:40px;
+}
 #homepage_news .section-news-post h1{
 	color:white;
 	font-size:16px;
 	font-weight:bold;
-	margin:0;
+	margin:4px;
+	float:left;
+	display:block;
+	height:40px;
+}
+#homepage_news .section-news-post img{
+	margin:4px;
+	float:left;
 }
 #home-dotted{height:10px;border-bottom:1px dashed red;}
 #home-solid{height:10px;border-bottom:1px solid red;}

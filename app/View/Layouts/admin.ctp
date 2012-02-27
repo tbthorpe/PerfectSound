@@ -42,7 +42,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div id="headernav">
 				<ul>
 					<li><a href="/sections">Site Sections</a></li>
-					<li><a href="/news">Blog</a></li>
+					<li><a href="/news/loggedinindex">Blog</a></li>
 					<li><a href="/users">Users</a></li>
 					<li><a href="/widgets">Footer Widgets</a></li>
 					<li><a href="/">PSS Home</a></li>

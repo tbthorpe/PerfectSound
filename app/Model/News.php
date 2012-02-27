@@ -7,7 +7,6 @@ App::uses('AppModel', 'Model');
 class News extends AppModel {
 
 	public $hasMany = array(
-
 		'Images'=>array(
 			'className' => 'Asset',
 			'foreignKey' => 'foreign_id',
@@ -15,9 +14,18 @@ class News extends AppModel {
 			)
 		);
 		
+	public $hasOne = array(
+		'BlogThumb'=>array(
+			'className' => 'Asset',
+			'foreignKey' => 'foreign_id',
+			'conditions' => array('BlogThumb.class'=>'News','BlogThumb.type'=>'blogthumb'),
+			)
+		);
+		
 	public function getSomeHeadlines($num){
 		$news = $this->find('all',array(
-			'fields'=>array('News.title'),
+			'fields'=>array('News.title','BlogThumb.filename'),
+			'recursive'=>0,
 			'order'=>array('News.created'=>'DESC'),
 			'limit'=>$num
 		));

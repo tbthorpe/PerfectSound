@@ -18,7 +18,14 @@ class NewsController extends AppController {
  * @return void
  */
 	public function index() {
+		// $this->News->recursive = 1;
+		$this->paginate = array('order'=>array('News.created'=>'DESC'));
+		$this->set('news', $this->paginate());
+	}
+	
+	public function loggedinindex() {
 		//$this->News->recursive = 0;
+		$this->layout='admin';
 		$this->paginate = array('order'=>array('News.created'=>'DESC'));
 		$this->set('news', $this->paginate());
 	}
@@ -57,7 +64,7 @@ class NewsController extends AppController {
 			$this->News->create();
 			if ($this->News->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The post has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'loggedinindex'));
 			} else {
 				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
 			}
@@ -79,12 +86,12 @@ class NewsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->News->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The section has been saved'));
-				// if (!empty($this->data['todelete'])){
-				// 					foreach (array_keys($this->data['todelete']) as $image){
-				// 						$this->News->Slides->delete($image);
-				// 					}
-				// 				}
-				$this->redirect(array('action' => 'index'));
+				if (!empty($this->data['todelete'])){
+					foreach (array_keys($this->data['todelete']) as $image){
+						$this->News->Images->delete($image);
+					}
+				}
+				$this->redirect(array('action' => 'loggedinindex'));
 			} else {
 				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
 			}
@@ -110,9 +117,9 @@ class NewsController extends AppController {
 		}
 		if ($this->News->delete()) {
 			$this->Session->setFlash(__('Post deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'loggedinindex'));
 		}
 		$this->Session->setFlash(__('Post was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'loggedinindex'));
 	}
 }
