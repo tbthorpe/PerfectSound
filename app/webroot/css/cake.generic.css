@@ -178,23 +178,23 @@ p {
 
 .bx-prev{
 	position:absolute;
-	top:20px;
-	left:-16px;
+	top:36px;
+	left:-12px;
 	width:0px;
-	padding-left:16px;
-	background:url(/img/back.png) no-repeat;
+	padding-left:7px;
+	background:url(/img/ps_arrow_left.png) no-repeat;
 	overflow:hidden;
-	height:34px;
+	height:20px;
 }
 .bx-next{
 	position:absolute;
-	top:20px;
-	right:-16px;
+	top:36px;
+	right:-12px;
 	width:0px;
-	padding-left:16px;
-	background:url(/img/forth.png) no-repeat;
+	padding-left:7px;
+	background:url(/img/ps_arrow_right.png) no-repeat;
 	overflow:hidden;
-	height:34px;
+	height:20px;
 }
 #weirdnav{
 	height:120px;
