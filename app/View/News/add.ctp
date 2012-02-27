@@ -5,19 +5,22 @@
 	<?php
 		echo $this->Form->input('title');
 		echo $this->Form->input('copy');
+		echo $this->Form->input('BlogThumb.filename', array('label'=>'Thumbnail (mainly for news module should be 40x40)','type'=>'file'));
+		echo $this->Form->input('BlogThumb.class', array('type'=>'hidden', 'value'=>$this->name));
+		echo $this->Form->input('BlogThumb.type', array('type'=>'hidden', 'value'=>'blogthumb'));
 	?>
 	<div id='add-photo-input'>
 	<?php
-	echo $this->Form->input('Images.0.filename', array('label'=>'Image','type'=>'file'));
-	echo $this->Form->input('Images.0.class', array('type'=>'hidden', 'value'=>$this->name));
-	echo $this->Form->input('Images.0.type', array('type'=>'hidden', 'value'=>'blogimg'));
+	// echo $this->Form->input('Images.0.filename', array('label'=>'Image','type'=>'file'));
+	// echo $this->Form->input('Images.0.class', array('type'=>'hidden', 'value'=>$this->name));
+	// echo $this->Form->input('Images.0.type', array('type'=>'hidden', 'value'=>'blogimg'));
 	echo '<div id="additional"></div>';	
 	echo '<a id="add-images">Add Image</a>';
 	echo '<script type="text/javascript"> 
 			$("#add-images").click(function(){
 				var children = $("#additional").children().length;
-				var next = 1 + children;
-				$("#additional").append(\'<div class="input file"><input type="file" name="data[Slides][\' + next + \'][filename]" id="Slides\' + next + \'Filename"><input type="hidden" name="data[Slides][\' + next + \'][class]" value="'.$this->name.'" id="Slides\' + next + \'Class"><input type="hidden" name="data[Slides][\' + next + \'][type]" value="slideshow" id="Slides\' + next + \'Type"></div>\');
+				var next = children;
+				$("#additional").append(\'<div class="input file"><input type="file" name="data[Images][\' + next + \'][filename]" id="Images\' + next + \'Filename"><input type="hidden" name="data[Images][\' + next + \'][class]" value="'.$this->name.'" id="Images\' + next + \'Class"><input type="hidden" name="data[Images][\' + next + \'][type]" value="blogimg" id="Images\' + next + \'Type"></div>\');
 			});
 		 </script>';
 	?>

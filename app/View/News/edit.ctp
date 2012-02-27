@@ -6,6 +6,17 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('title');
 		echo $this->Form->input('copy');?>
+		<?php if (isset($this->data['BlogThumb']['filename'])): ?>
+		<img src="<?php echo "/img/Assets/".$this->data['BlogThumb']['filename']; ?>" width=40 /> 
+		<?php 
+			echo $this->Form->input('BlogThumb.id', array('type'=>'hidden', 'value'=>$this->data['BlogThumb']['id']));
+			endif; 
+		?>
+		<?php
+		echo $this->Form->input('BlogThumb.filename', array('label'=>'Module Thumbnail','type'=>'file'));
+		echo $this->Form->input('BlogThumb.class', array('type'=>'hidden', 'value'=>$this->name));
+		echo $this->Form->input('BlogThumb.type', array('type'=>'hidden', 'value'=>'blogthumb'));
+		 ?>
 		
 
 	<?php 
@@ -14,7 +25,7 @@
 			for ($i=0; $i<$num_uploads; ++$i){
 				if(isset($this->data['Images'][$i])){ ?>
 					<div style='border:1px solid red;padding:10px;'>
-						Type: <?php echo $this->data['Images'][$i]['type']; ?><br />
+						To use - put ::<?= $i; ?>:: in the copy above!<br />
 						<img src="<?php echo "/img/Assets/".$this->data['Images'][$i]['filename']; ?>" width=250 /> 
 						<?php echo $this->Form->input("Images.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
 						<?php echo $this->Form->input("Images.$i.id"); ?>
@@ -49,6 +60,6 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Section.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Section.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Sections'), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Sections'), array('action' => 'loggedinindex'));?></li>
 	</ul>
 </div>
