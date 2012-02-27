@@ -29,9 +29,13 @@
 	<div class="section-other">
 		<div id="section_news">
 			<div id="newsheader">NEWS</div>
+			<?php $i=1; ?>
 			<?php foreach ($news as $post): ?>
 				<div class="section-news-post">
+					<h2><?php echo $i."."; $i++; ?></h2>
+					<img class="newsthumb" src="/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>">
 					<h1><?php echo $post['News']['title']; ?></h1>
+					<div style="clear:both;"></div>
 				</div>
 			<?php endforeach; ?>
 		</div>
