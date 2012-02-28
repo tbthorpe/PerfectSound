@@ -3,7 +3,7 @@
 	<?php
 	foreach ($news as $post): ?>
 		<div class="news-post">
-			<h3><?php echo h($post['News']['title']); ?></h3>	
+			<h3><a href="/news/view/<?php echo h($post['News']['slug']); ?>"><?php echo h($post['News']['title']); ?></a></h3>	
 			<p class="news-date"><?php echo date('m-d-Y',strtotime($post['News']['created'])); ?></p>
 			<p class="news-copy"><?php echo $this->BlogImage->imageifyPost($post['News']['copy'],$post['Images']); ?></p>
 		</div>

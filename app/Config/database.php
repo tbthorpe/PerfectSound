@@ -46,7 +46,7 @@ class DATABASE_CONFIG {
 				'encoding' => 'utf8',
 			);
 			
-			$this->local = array(
+			$this->default = array(
 				'datasource' => 'Database/Mysql',
 				'persistent' => false,
 				'host' => '127.0.0.1',
@@ -58,15 +58,15 @@ class DATABASE_CONFIG {
 			);
 
 
-		switch($_SERVER['SERVER_NAME']){
-			case ('perfectsoundmixing.com'):
-			case ('www.perfectsoundmixing.com'):
-			case ('50.56.226.115'):
-				$this->default = $this->production;
-			break;
-			case ('perfectsound.local'):
-				 $this->default = $this->local;
-			break;			
-		}
+		// switch($_SERVER['SERVER_NAME']){
+		// 	case ('perfectsoundmixing.com'):
+		// 	case ('www.perfectsoundmixing.com'):
+		// 	case ('50.56.226.115'):
+		// 		$this->default = $this->production;
+		// 	break;
+		// 	case ('perfectsound.local'):
+		// 		 $this->default = $this->local;
+		// 	break;			
+		// }
 	}
 }

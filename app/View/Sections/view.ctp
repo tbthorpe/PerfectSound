@@ -1,4 +1,3 @@
-
 <style type="text/css" media="screen">
 
 	#homeslider { background: #000 url('orbit/loading.gif') no-repeat center center; overflow: hidden; },  
@@ -6,8 +5,18 @@
 </style>
 <script type="text/javascript">
      $(window).load(function() {
-         $('#homeslider').orbit({timer:false,bullets:true,directionalNav:false});
+         $('#homeslider').orbit({timer:true,bullets:true,directionalNav:false,advanceSpeed:8000});
      });
+	$(document).ready(function(){
+		$('#ratesubmit').click(function(){
+			var url='/users/requestRates/'+$("#rateemail").val()+'/'+$("#ratecq").val();
+			$.post(url, function(data) {
+				$('#ratesform').fadeOut('slow',function(){
+					$('#ratesthankyou').fadeIn('fast');
+				})
+			});
+		})
+	});
 </script>
 <div class="sectionheader">
 	<div id="homesliderbg"></div>
@@ -25,6 +34,20 @@
 	<div class="section-copy">
 		<!-- <h1><?php echo $section['Section']['name']; ?></h1> -->
 		<p><?php echo $section['Section']['copy']; ?></p>
+		<?php if ($this->here == '/the-rates'): ?>
+			<div id="ratesform" style="margin:20px;">
+				<form id="ratesrequestform">
+				<label for="rateemail">Email:</label>
+				<input type='text' name="rateemail" id="rateemail"><br/>
+				<label for="rateemail">Comments/Questions:</label>
+				<textarea name="ratecq" id="ratecq"></textarea>
+				<input type="button" value="holler." id="ratesubmit" style="width:100px">
+				</form>
+			</div>
+			<div id="ratesthankyou" style="display:none;margin:20px;">
+				<h2>We'll be in touch</h2>
+			</div>
+		<?php endif; ?>
 	</div>
 	<div class="section-other">
 		<div id="section_news">
