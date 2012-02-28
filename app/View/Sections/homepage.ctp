@@ -18,7 +18,7 @@
 </style>
 <script type="text/javascript">
      $(window).load(function() {
-         $('#homeslider').orbit({timer:true,bullets:true,directionalNav:false,advanceSpeed:6000});
+         $('#homeslider').orbit({timer:true,bullets:true,directionalNav:false,advanceSpeed:8000});
      });
 </script>
 <div class="sectionheader">
@@ -41,7 +41,7 @@
 			<div class="section-news-post">
 				<h2><?php echo $i."."; $i++; ?></h2>
 				<img class="newsthumb" src="/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>">
-				<h1><?php echo $post['News']['title']; ?></h1>
+				<h1><a href="/news/view/<?php echo $post['News']['slug']; ?>"><?php echo $post['News']['title']; ?></a></h1>
 				<div style="clear:both;"></div>
 			</div>
 		<?php endforeach; ?>

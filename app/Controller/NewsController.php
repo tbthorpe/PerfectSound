@@ -10,7 +10,7 @@ class NewsController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('index');
+		$this->Auth->allow('index','view');
 	}
 /**
  * index method
@@ -36,12 +36,18 @@ class NewsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		$this->News->id = $id;
-		if (!$this->News->exists()) {
-			throw new NotFoundException(__('Invalid news'));
-		}
-		$this->set('news', $this->News->read(null, $id));
+	public function view($permalink = null) {
+		$post = $this->News->findBySlug($permalink);
+
+			if (!$post){
+				throw new NotFoundException(__('Invalid news'));
+			}
+			$this->set('news', $post);
+		// $this->News->id = $id;
+		// if (!$this->News->exists()) {
+		// 	throw new NotFoundException(__('Invalid news'));
+		// }
+		// $this->set('news', $this->News->read(null, $id));
 	}
 	
 	public function admin_view($id = null) {

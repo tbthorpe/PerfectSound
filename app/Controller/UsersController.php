@@ -9,7 +9,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 	    parent::beforeFilter();
-	    $this->Auth->allow('login','logout');
+	    $this->Auth->allow('login','logout','requestRates');
 	}
 	public function initDB() {
 	    $group = $this->User->Group;
@@ -139,4 +139,34 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+		public function requestRates($email = NULL, $comments = NULL){
+
+			if ($this->params['pass'][0]){
+							$email = addslashes($this->params['pass'][0]);
+						}
+						if ($this->params['pass'][1]){
+							$comments = addslashes($this->params['pass'][1]);
+						}
+			// $this->autoLayout = $this->autoRender = false; 
+			$this->autoRender = false; 
+			$this->layout = 'ajax';
+			debug($this->params['pass']);
+			if ($this->request->is('ajax')){
+				$query = sprintf("INSERT INTO rateinquiries (`email`,`comments`,`created`) VALUES ('%s','%s',NOW())",
+				            mysql_escape_string($email),
+				            mysql_escape_string($comments));
+				debug($query);
+				$this->User->query($query);
+				$to = "tbthorpe@gmail.com";
+				$subject = "PSS RATE INQUIRY";
+				$message = "Yeah these people said this: \n".$comments;
+				$from = $email;
+				$headers = "From:" . $from;
+				mail($to,$subject,$message,$headers);
+				echo "done";
+				//debug($this->params['pass']);
+			}
+			
+		}
 }
