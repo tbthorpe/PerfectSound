@@ -1,3 +1,11 @@
+<script type="text/javascript" charset="utf-8" src="/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript"> 
+    tinyMCE.init({ 
+        theme : "advanced", 
+        mode : "textareas", 
+        convert_urls : false 
+    }); 
+</script>
 <div class="sections form">
 <?php echo $this->Form->create('News',array('type'=>'file'));?>
 	<fieldset>
@@ -40,7 +48,7 @@
 			endif; 
 
 			echo '<div id="additional"></div>';	
-			echo '<a id="add-images">Add Image</a>';
+			echo '<a id="add-images" style="color:black;cursor:pointer;">Add Image</a>';
 			echo '<script type="text/javascript"> 
 					$("#add-images").click(function(){
 						var children = $("#additional").children().length;

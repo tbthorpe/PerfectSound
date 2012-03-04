@@ -10,12 +10,14 @@
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('jcarousel');
 		echo $this->Html->css('orbit-1.2.3');
+		echo $this->Html->css('jquery.fancybox-1.3.4');
 		echo $this->Html->script('jquery.bxSlider.min');
 		echo $this->Html->script('jquery.easing.1.3');
 		echo $this->Html->script('jcarousel');
 		echo $this->Html->script('jc2');
 		echo $this->Html->script('lemmon-slider');
 		echo $this->Html->script('jquery.orbit-1.2.3.min');
+		echo $this->Html->script('jquery.fancybox-1.3.4');
 		echo $scripts_for_layout;
 	?>
 	<style>
@@ -35,7 +37,36 @@
 		    displaySlideQty: 4,
 		    moveSlideQty: 4
 		  });
-	})
+		
+		$('.widgetvideo').click(function() {
+			$.fancybox({
+					'padding'		: 0,
+					'autoScale'		: false,
+					'transitionIn'	: 'none',
+					'transitionOut'	: 'none',
+					'title'			: this.title,
+					'width'		: 680,
+					'height'		: 495,
+					'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+					'type'			: 'swf',
+					'swf'			: {
+					   	 'wmode'		: 'transparent',
+						'allowfullscreen'	: 'true'
+					}
+				});
+
+			return false;
+		});
+		$('#homepage_news #newsheader').toggle(
+			function(){
+				$('#homepage_news').animate({"height": "31px"}, "slow");
+			},
+			function(){
+				$('#homepage_news').animate({"height": "150px"}, "slow");
+			});
+		
+	});
+	
 	</script>
 	<script type="text/javascript" src="http://use.typekit.com/dpi1gos.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -44,85 +75,71 @@
 	<div id="wrapper" style="overflow:hidden;">
 		
 	
-	<div id="container">
-		<div id="header">
-			<a href="/" id="logolink"></a>
-			<div id="headernav">
-				<ul>
-					<li><a href="/perfect-sound-news">The News</a></li>
-					<li><a href="/the-gear">The Gear</a></li>
-					<li><a href="/the-rates">The Rates</a></li>
-					<li><a href="/the-experience ">The Experience</a></li>
-					<li><a href="/the-team">The Team</a></li>
-					<li><a href="/the-house">The House</a></li>
-					<li><a href="/the-studio">The Studio</a></li>
-					<br style="clear:both;">
-				</ul>
+		<div id="container">
+			<div id="header">
+				<a href="/" id="logolink"></a>
+				<div id="headernav">
+					<ul>
+						<li><a href="/perfect-sound-news">The News</a></li>
+						<li><a href="/the-gear">The Gear</a></li>
+						<li><a href="/the-rates">The Rates</a></li>
+						<li><a href="/the-experience ">The Experience</a></li>
+						<li><a href="/the-team">The Team</a></li>
+						<li><a href="/the-house">The House</a></li>
+						<li><a href="/the-studio">The Studio</a></li>
+						<br style="clear:both;">
+					</ul>
+				</div>
 			</div>
-		</div>
-		<div id="content">
+			<div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+				<?php echo $this->Session->flash(); ?>
 
-			<?php echo $content_for_layout; ?>
+				<?php echo $content_for_layout; ?>
 
-		</div>
+			</div>
 		
-	</div>
-	<div id="abovefooter">
+		</div>
+		<div id="abovefooter">
 			<div id="abovehead"></div>
-			<div>
 			<div id="slider1" class="slider" style="float:left;">
 				<?php foreach($widgets as $widget): ?>
 					<div class='footerwidget'>
 						<?php if (empty($widget['Widget']['videoembed'])): ?>
-							<h4><?= $widget['Widget']['title']?></h4>
-							<p class="widget-text"><?= $widget['Widget']['text']?></p>
+							<h4><?php echo $widget['Widget']['title']?></h4>
+							<p class="widget-text"><?php echo $widget['Widget']['text']?></p>
 							<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
 						<?php else: ?>
 							<div class="vidcontainer">
-								<iframe width="120" height="80" src="http://www.youtube.com/embed/<?php echo $widget['Widget']['videoembed'] ?>?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+								<a href="http://www.youtube.com/watch?v=<?php echo $widget['Widget']['videoembed'] ?>" class='widgetvideo'><img src="http://img.youtube.com/vi/<?php echo $widget['Widget']['videoembed'] ?>/2.jpg"></a>
 							</div>
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
 			</div>
-		
-		<!-- <div id="sociallinks">
-				<ul>
-					<li><img src="/img/twitter.png"></li>
-					<li><img src="/img/facebook.png"></li>
-					<li><img src="/img/googleplus.png"></li>
-					<li><img src="/img/email.png"></li>
-				</ul>
-			</div>
-			<div id="meettheteam">
-				<a href="/the-team"></a>
-			</div>
-			<div style="clear:both;"></div>
-		</div> -->
-	<div id="footer">
-		<div id="footercontainer">
-			<div id="footernav">
-				<ul>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Sitemap</a></li>
-					<li><a href="#">Equipment</a></li>
-					<li><a href="#">Engineers</a></li>
-					<li><a href="#">Clients</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Luxury Housing Rental</a></li>
-					<li><a href="#">Rates</a></li>
-					<br style="clear:both;">
-				</ul>
-				<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
-			</div>
-			<div id="socialicons">
-				<a href="#"><img src="/img/twittericon.png"></a>
-				<a href="#"><img src="/img/facebookicon.png"></a>
+		</div>
+		<div id="footer">
+			<div id="footercontainer">
+				<div id="footernav">
+					<ul>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Sitemap</a></li>
+						<li><a href="#">Equipment</a></li>
+						<li><a href="#">Engineers</a></li>
+						<li><a href="#">Clients</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Luxury Housing Rental</a></li>
+						<li><a href="#">Rates</a></li>
+						<br style="clear:both;">
+					</ul>
+					<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
+				</div>
+				<div id="socialicons">
+					<a href="https://www.facebook.com/pages/Perfect-Sound-Studios/190871317666366" target="_blank"><img src="/img/twittericon.png"></a>
+					<a href="#"><img src="/img/facebookicon.png"></a>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
