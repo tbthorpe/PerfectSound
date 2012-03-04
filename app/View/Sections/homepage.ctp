@@ -34,7 +34,7 @@
 		<h4>After $10.5 million in renovations, the new studio is unveiled to LA. See what's new</h4> 
 	</div>
 
-	<div id="homepage_news">
+	<div id="homepage_news" class="allnewsmodule">
 		<div id="newsheader"><a href="/perfect-sound-news">NEWS</a></div>
 		<?php $i=1; ?>
 		<?php foreach ($news as $post): ?>

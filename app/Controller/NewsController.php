@@ -38,16 +38,12 @@ class NewsController extends AppController {
  */
 	public function view($permalink = null) {
 		$post = $this->News->findBySlug($permalink);
-
-			if (!$post){
-				throw new NotFoundException(__('Invalid news'));
-			}
-			$this->set('news', $post);
-		// $this->News->id = $id;
-		// if (!$this->News->exists()) {
-		// 	throw new NotFoundException(__('Invalid news'));
-		// }
-		// $this->set('news', $this->News->read(null, $id));
+		if (!$post){
+			throw new NotFoundException(__('Invalid news'));
+		}
+		$headlines = $this->News->getSomeHeadlines(3);
+		$this->set('headlines',$headlines);
+		$this->set('news', $post);
 	}
 	
 	public function admin_view($id = null) {
