@@ -65,8 +65,16 @@
 				$('#homepage_news').animate({"height": "150px"}, "slow");
 			});
 		
+			$(".widgimg").fancybox({
+				'showCloseButton'	: false,
+				'titlePosition' 		: 'inside',
+				'titleFormat'		: formatTitle
+			});
+		
 	});
-	
+	function formatTitle(title, currentArray, currentIndex, currentOpts) {
+	    return '<div class="widget-fb-title"><span><a href="javascript:;" onclick="$.fancybox.close();"><img src="/img/fancybox/closelabel.gif" /></a></span>' + (title && title.length ? '<b>' + title + '</b>' : '' ) + '</div>';
+	}
 	</script>
 	<script type="text/javascript" src="http://use.typekit.com/dpi1gos.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -106,9 +114,16 @@
 				<?php foreach($widgets as $widget): ?>
 					<div class='footerwidget'>
 						<?php if (empty($widget['Widget']['videoembed'])): ?>
-							<h4><?php echo $widget['Widget']['title']?></h4>
-							<p class="widget-text"><?php echo $widget['Widget']['text']?></p>
-							<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
+							<?php if (empty($widget['WidgImg']['filename'])): ?>
+								<h4><?php echo $widget['Widget']['title']?></h4>
+								<p class="widget-text"><?php echo $widget['Widget']['text']?></p>
+								<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
+							<?php else: ?>
+								<div class="vidcontainer">
+								<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="120px"></a>
+								</div>
+
+							<?php endif; ?>
 						<?php else: ?>
 							<div class="vidcontainer">
 								<a href="http://www.youtube.com/watch?v=<?php echo $widget['Widget']['videoembed'] ?>" class='widgetvideo'><img src="http://img.youtube.com/vi/<?php echo $widget['Widget']['videoembed'] ?>/2.jpg"></a>

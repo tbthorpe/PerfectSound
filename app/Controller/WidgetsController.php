@@ -26,6 +26,7 @@ class WidgetsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->layout='admin';
 		$this->Widget->id = $id;
 		if (!$this->Widget->exists()) {
 			throw new NotFoundException(__('Invalid widget'));

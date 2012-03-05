@@ -48,7 +48,5 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Widget'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Assets'), array('controller' => 'assets', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Image'), array('controller' => 'assets', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

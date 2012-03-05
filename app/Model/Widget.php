@@ -9,7 +9,7 @@ class Widget extends AppModel {
 		'WidgImg'=>array(
 			'className' => 'Asset',
 			'foreignKey' => 'foreign_id',
-			'conditions' => array('WidgImg.class'=>'Sections','WidgImg.type'=>'wigige'),
+			'conditions' => array('WidgImg.class'=>'Widgets','WidgImg.type'=>'wigige'),
 			)
 		);
 }

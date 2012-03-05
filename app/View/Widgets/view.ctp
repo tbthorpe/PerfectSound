@@ -45,8 +45,6 @@
 		<li><?php echo $this->Form->postLink(__('Delete Widget'), array('action' => 'delete', $widget['Widget']['id']), null, __('Are you sure you want to delete # %s?', $widget['Widget']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Widgets'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Widget'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Assets'), array('controller' => 'assets', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Image'), array('controller' => 'assets', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 	<div class="related">

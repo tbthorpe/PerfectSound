@@ -68,6 +68,6 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Section.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Section.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Sections'), array('action' => 'loggedinindex'));?></li>
+		<li><?php echo $this->Html->link(__('All Posts'), array('action' => 'loggedinindex'));?></li>
 	</ul>
 </div>

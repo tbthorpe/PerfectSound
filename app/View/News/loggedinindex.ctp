@@ -12,7 +12,7 @@
 		<td><?php echo h($post['News']['id']); ?>&nbsp;</td>
 		<td><?php echo h($post['News']['title']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $post['News']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $post['News']['slug'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['News']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['News']['id']), null, __('Are you sure you want to delete # %s?', $post['News']['id'])); ?>
 		</td>
