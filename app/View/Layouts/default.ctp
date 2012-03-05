@@ -70,6 +70,11 @@
 				'titlePosition' 		: 'inside',
 				'titleFormat'		: formatTitle
 			});
+			
+		$('.bx-prev').hover(function(){$(this).css('background-image','url(/img/ps_arrow_left-on.png)')},
+							function(){$(this).css('background-image','url(/img/ps_arrow_left.png)')});
+		$('.bx-next').hover(function(){$(this).css('background-image','url(/img/ps_arrow_right-on.png)')},
+							function(){$(this).css('background-image','url(/img/ps_arrow_right.png)')});
 		
 	});
 	function formatTitle(title, currentArray, currentIndex, currentOpts) {
@@ -139,19 +144,19 @@
 					<ul>
 						<li><a href="#">Contact</a></li>
 						<li><a href="#">Sitemap</a></li>
-						<li><a href="#">Equipment</a></li>
-						<li><a href="#">Engineers</a></li>
+						<li><a href="/the-gear">Equipment</a></li>
+						<li><a href="/the-team">Engineers</a></li>
 						<li><a href="#">Clients</a></li>
 						<li><a href="#">Services</a></li>
 						<li><a href="#">Luxury Housing Rental</a></li>
-						<li><a href="#">Rates</a></li>
+						<li><a href="/the-rates">Rates</a></li>
 						<br style="clear:both;">
 					</ul>
 					<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
 				</div>
 				<div id="socialicons">
-					<a href="https://www.facebook.com/pages/Perfect-Sound-Studios/190871317666366" target="_blank"><img src="/img/twittericon.png"></a>
-					<a href="#"><img src="/img/facebookicon.png"></a>
+					<a href="#" target="_blank"><img src="/img/twittericon.png"></a>
+					<a href="https://www.facebook.com/pages/Perfect-Sound-Studios/190871317666366"><img src="/img/facebookicon.png"></a>
 				</div>
 			</div>
 		</div>
