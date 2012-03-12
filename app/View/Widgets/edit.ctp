@@ -1,4 +1,3 @@
-<?php debug($this->data['WidgImg']); ?>
 <div class="widgets form">
 <?php echo $this->Form->create('Widget',array('type'=>'file'));?>
 	<fieldset>
