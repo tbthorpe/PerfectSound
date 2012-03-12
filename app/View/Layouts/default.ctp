@@ -60,9 +60,11 @@
 		$('#homepage_news #newsheader').toggle(
 			function(){
 				$('#homepage_news').animate({"height": "31px"}, "slow");
+				$('#minimizearrow').html('&uarr;');
 			},
 			function(){
 				$('#homepage_news').animate({"height": "150px"}, "slow");
+				$('#minimizearrow').html('&darr;');
 			});
 		
 			$(".widgimg").fancybox({
@@ -124,14 +126,15 @@
 								<p class="widget-text"><?php echo $widget['Widget']['text']?></p>
 								<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
 							<?php else: ?>
-								<div class="vidcontainer">
-								<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="120px"></a>
+								<h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4>
+								<div class="imagecontainer">
+									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="65px"></a>
 								</div>
-
 							<?php endif; ?>
 						<?php else: ?>
 							<div class="vidcontainer">
-								<a href="http://www.youtube.com/watch?v=<?php echo $widget['Widget']['videoembed'] ?>" class='widgetvideo'><img src="http://img.youtube.com/vi/<?php echo $widget['Widget']['videoembed'] ?>/2.jpg"></a>
+								<a href="http://www.youtube.com/watch?v=<?php echo $widget['Widget']['videoembed'] ?>" class='widgetvideo'><img src="http://img.youtube.com/vi/<?php echo $widget['Widget']['videoembed'] ?>/2.jpg">
+								<img src="/img/playbutton.png" style="cursor:pointer;position: absolute;top: 17px;left: 36px;"></a>
 							</div>
 						<?php endif; ?>
 					</div>
