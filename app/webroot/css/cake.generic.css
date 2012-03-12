@@ -877,6 +877,7 @@ pre {
 #allposts .news-post p.news-date{font-weight:lighter;margin-top:0;margin-bottom:10px;font-size:8px;color:#ff0000;}
 #allposts .news-post p.news-copy{margin-bottom:20px;}
 
+.blogcopy .news-copy{margin-top:20px}
 /* Section page */
 .sectionheader{
 	overflow:hidden;
