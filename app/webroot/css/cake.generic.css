@@ -992,6 +992,7 @@ pre {
 }
 #homepage_news{
 	width:250px;
+	height:31px;
 	border-left:1px solid rgb(85,85,85);
 	border-right:1px solid rgb(85,85,85);
 	position:absolute;
