@@ -59,12 +59,12 @@
 		});
 		$('#homepage_news #newsheader').toggle(
 			function(){
-				$('#homepage_news').animate({"height": "31px"}, "slow");
-				$('#minimizearrow').html('&uarr;');
-			},
-			function(){
 				$('#homepage_news').animate({"height": "150px"}, "slow");
 				$('#minimizearrow').html('&darr;');
+			},
+			function(){
+				$('#homepage_news').animate({"height": "31px"}, "slow");
+				$('#minimizearrow').html('&uarr;');
 			});
 		
 			$(".widgimg").fancybox({
