@@ -3,6 +3,9 @@
 </div>
 <div class="blogcopy">
 	<p class="news-date"><?php echo date('m-d-Y',strtotime($news['News']['created'])); ?></p>
+	<p>
+		<img src="/img/Assets/<?php echo $news['BlogThumb']['filename']; ?>" width="300px">
+	</p>
 	<p class="news-copy"><?php echo $this->BlogImage->imageifyPost($news['News']['copy'],$news['Images']); ?></p>
 </div>
 <div class="section-other">
