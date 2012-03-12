@@ -15,12 +15,10 @@
 		echo $this->Form->input('title');
 		echo $this->Form->input('copy');?>
 		<?php if (isset($this->data['BlogThumb']['filename'])): ?>
-		<img src="<?php echo "/img/Assets/".$this->data['BlogThumb']['filename']; ?>" width=40 /> 
-		<?php 
-			echo $this->Form->input('BlogThumb.id', array('type'=>'hidden', 'value'=>$this->data['BlogThumb']['id']));
-			endif; 
-		?>
+			<img src="<?php echo "/img/Assets/".$this->data['BlogThumb']['filename']; ?>" width=40 /> 
+		<?php endif; ?>
 		<?php
+		echo $this->Form->input('BlogThumb.id', array('type'=>'hidden', 'value'=>$this->data['BlogThumb']['id']));
 		echo $this->Form->input('BlogThumb.filename', array('label'=>'Module Thumbnail','type'=>'file'));
 		echo $this->Form->input('BlogThumb.class', array('type'=>'hidden', 'value'=>$this->name));
 		echo $this->Form->input('BlogThumb.type', array('type'=>'hidden', 'value'=>'blogthumb'));
