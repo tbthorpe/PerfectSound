@@ -128,7 +128,7 @@
 							<?php else: ?>
 								<h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4>
 								<div class="imagecontainer">
-									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="65px"></a>
+									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="100px"></a>
 								</div>
 							<?php endif; ?>
 						<?php else: ?>
