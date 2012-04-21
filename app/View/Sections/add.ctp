@@ -1,3 +1,11 @@
+<script type="text/javascript" charset="utf-8" src="/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript"> 
+    tinyMCE.init({ 
+        theme : "advanced", 
+        mode : "textareas", 
+        convert_urls : false 
+    }); 
+</script>
 <div class="sections form">
 <?php echo $this->Form->create('Section',array('type'=>'file'));?>
 	<fieldset>
