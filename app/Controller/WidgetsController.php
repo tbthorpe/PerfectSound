@@ -45,8 +45,8 @@ class WidgetsController extends AppController {
 			$this->Widget->create();
 			if ($this->Widget->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The widget has been saved'));
-				//$this->redirect(array('action' => 'index'));
-				debug($this->request->data);
+				$this->redirect(array('action' => 'index'));
+				// debug($this->request->data);
 			} else {
 				$this->Session->setFlash(__('The widget could not be saved. Please, try again.'));
 			}
@@ -62,10 +62,13 @@ class WidgetsController extends AppController {
 	public function edit($id = null) {
 		$this->layout='admin';
 		$this->Widget->id = $id;
+
 		if (!$this->Widget->exists()) {
 			throw new NotFoundException(__('Invalid widget'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			// debug($this->request->data);
+			// exit;
 			if ($this->Widget->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The widget has been saved'));
 				$this->redirect(array('action' => 'index'));
