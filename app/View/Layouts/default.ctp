@@ -59,7 +59,7 @@
 		});
 		$('#homepage_news #newsheader').toggle(
 			function(){
-				$('#homepage_news').animate({"height": "150px"}, "slow");
+				$('#homepage_news').animate({"height": "196px"}, "slow");
 				$('#minimizearrow').html('&darr;');
 			},
 			function(){

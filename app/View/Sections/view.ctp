@@ -41,7 +41,7 @@
 				<input type='text' name="rateemail" id="rateemail"><br/>
 				<label for="rateemail">Comments/Questions:</label>
 				<textarea name="ratecq" id="ratecq"></textarea>
-				<input type="button" value="holler." id="ratesubmit" style="width:100px">
+				<input type="button" value="submit" id="ratesubmit" style="width:100px">
 				</form>
 			</div>
 			<div id="ratesthankyou" style="display:none;margin:20px;">
