@@ -1,3 +1,4 @@
+
 <div class="widgets form">
 <?php echo $this->Form->create('Widget',array('type'=>'file'));?>
 	<fieldset>
@@ -18,6 +19,7 @@
 	echo $this->Form->input('WidgImg.filename', array('label'=>'Cover Image','type'=>'file'));
 	echo $this->Form->input('WidgImg.class', array('type'=>'hidden', 'value'=>$this->name));
 	echo $this->Form->input('WidgImg.type', array('type'=>'hidden', 'value'=>'wigige'));
+	echo $this->Form->input('WidgImg.id', array('type'=>'hidden', 'value'=>$this->data['WidgImg']['id']));
 	?>
 	
 	</fieldset>
