@@ -54,7 +54,7 @@ h2 {
 	font-size: 190%;
 }
 h3 {
-	color: #2c6877;
+	color: #444;
 	font-family:'nimbus-sans',verdana,helvetica,arial,sans-serif;
 	font-size: 165%;
 }
@@ -461,7 +461,7 @@ label {
 input, textarea {
 	clear: both;
 	font-size: 140%;
-	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	font-family: "frutiger linotype", 'nimbus-sans', "verdana", sans-serif;
 	padding: 1%;
 	width:98%;
 }
@@ -874,8 +874,8 @@ pre {
 /* BLOG PAGE */
 #allposts h2{margin-bottom:40px;}
 #allposts .news-post{border-bottom:1px dotted #ff0000;margin-bottom:20px;}
-#allposts .news-post h3 a{color:#444444;font-weight:bold;font-family:'lucida grande',verdana,helvetica,arial,sans-serif;margin-bottom:5px;}
-#allposts .news-post p.news-date{font-weight:lighter;margin-top:0;margin-bottom:10px;font-size:8px;color:#ff0000;}
+#allposts .news-post h3 a{color:#444444;font-weight:bold;font-family:'nimbus-sans',verdana,helvetica,arial,sans-serif;margin-bottom:5px;}
+#allposts .news-post p.news-date{font-weight:lighter;margin-top:0;margin-bottom:10px;font-size:10px;color:#ff0000;}
 #allposts .news-post p.news-copy{margin-bottom:20px;}
 
 .blogcopy .news-copy{margin-top:20px}
