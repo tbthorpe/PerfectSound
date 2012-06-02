@@ -27,6 +27,7 @@
  */
 	Router::connect('/', array('controller' => 'sections', 'action' => 'homepage'));
 	Router::connect('/the-news', array('controller' => 'sections', 'action' => 'theblog'));
+	Router::connect('/the-gear', array('controller' => 'sections', 'action' => 'thegear'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
@@ -38,7 +39,6 @@
 	Router::connect('/the-team', array('controller' => 'sections', 'action' => 'theteam'));
 	Router::connect('/the-experience', array('controller' => 'sections', 'action' => 'view',6));
 	Router::connect('/the-rates', array('controller' => 'sections', 'action' => 'view',7));
-	Router::connect('/the-gear', array('controller' => 'sections', 'action' => 'view',8));
 	
 	//Router::connect('/perfect-sound-news', array('controller' => 'news', 'action' => 'index'));
 	
