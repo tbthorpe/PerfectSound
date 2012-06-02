@@ -12,7 +12,7 @@
 		<legend><?php echo __('Add Post'); ?></legend>
 	<?php
 		echo $this->Form->input('title');
-		echo $this->Form->input('copy');
+		echo $this->Form->input('copy',array('rows'=>15));
 		echo $this->Form->input('displaydate');
 		echo $this->Form->input('BlogThumb.filename', array('label'=>'Thumbnail (mainly for news module should be 40x40)','type'=>'file'));
 		echo $this->Form->input('BlogThumb.class', array('type'=>'hidden', 'value'=>$this->name));
