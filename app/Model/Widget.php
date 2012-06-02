@@ -12,4 +12,12 @@ class Widget extends AppModel {
 			'conditions' => array('WidgImg.class'=>'Widgets','WidgImg.type'=>'wigige'),
 			)
 		);
+		
+	private function reorder($order){
+		$orders = explode(",",$order);
+		foreach ($orders as $item){
+			$array = preg_split("/[_]/", $item);
+			return $item;
+		}
+	}
 }

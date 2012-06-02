@@ -13,7 +13,16 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('title');
-		echo $this->Form->input('copy');?>
+		echo $this->Form->input('copy');
+		echo $this->Form->input('displaydate');
+	?>
+		
+		<?php
+		$options = array('1' => 'Yes', '0' => 'No');
+		// echo $this->Form->select('inwidget', $options, null, array('label' => "show in news widget?"));
+				echo $this->Form->input('inwidget', array('options'=>$options,'label'=>'Show in News Widget?','empty'=>false));
+		?>
+<br/><br/>
 		<?php if (isset($this->data['BlogThumb']['filename'])): ?>
 			<img src="<?php echo "/img/Assets/".$this->data['BlogThumb']['filename']; ?>" width=40 /> 
 		<?php endif; ?>
@@ -26,34 +35,34 @@
 		
 
 	<?php 
-		$num_uploads = sizeof($this->data['Images']);
-		if ($num_uploads>0):		
-			for ($i=0; $i<$num_uploads; ++$i){
-				if(isset($this->data['Images'][$i])){ ?>
-					<div style='border:1px solid red;padding:10px;'>
-						To use - put ::<?= $i; ?>:: in the copy above!<br />
-						<img src="<?php echo "/img/Assets/".$this->data['Images'][$i]['filename']; ?>" width=250 /> 
-						<?php echo $this->Form->input("Images.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
-						<?php echo $this->Form->input("Images.$i.id"); ?>
-						<?php echo $this->Form->hidden("Images.$i.type"); ?>
-						<?php echo $this->Form->hidden("Images.$i.class"); ?>
-
-					<div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['Images'][$i]['id']; ?>]" /></div>
-					</div>
-				<?php	}
-					}
+		// $num_uploads = sizeof($this->data['Images']);
+		// if ($num_uploads>0):		
+		// 	for ($i=0; $i<$num_uploads; ++$i){
+		// 		if(isset($this->data['Images'][$i])){ ?>
+		 			<!-- <div style='border:1px solid red;padding:10px;'>
+		 					 				To use - put ::<?= $i; ?>:: in the copy above!<br />
+		 					 				<img src="<?php echo "/img/Assets/".$this->data['Images'][$i]['filename']; ?>" width=250 />  -->
+		 				<?php //echo $this->Form->input("Images.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
+		 				<?php //echo $this->Form->input("Images.$i.id"); ?>
+		 				<?php //echo $this->Form->hidden("Images.$i.type"); ?>
+		 				<?php //echo $this->Form->hidden("Images.$i.class"); ?>
+		 
+		 			<!-- <div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['Images'][$i]['id']; ?>]" /></div>
+				// 			</div> -->
+		 		<?php	//}
+		// 			}
 					
-			endif; 
+//endif; 
 
-			echo '<div id="additional"></div>';	
-			echo '<a id="add-images" style="color:black;cursor:pointer;">Add Image</a>';
-			echo '<script type="text/javascript"> 
-					$("#add-images").click(function(){
-						var children = $("#additional").children().length;
-						var next = 1 + children + '.$num_uploads.';
-						$("#additional").append(\'<div class="input file"><input type="file" name="data[Images][\' + next + \'][filename]" id="Images\' + next + \'Filename"><input type="hidden" name="data[Images][\' + next + \'][class]" value="'.$this->name.'" id="Images\' + next + \'Class"><input type="hidden" name="data[Images][\' + next + \'][type]" value="blogimg" id="Images\' + next + \'Type"></div>\');
-					});
-				 </script>';
+			// echo '<div id="additional"></div>';	
+			// 			echo '<a id="add-images" style="color:black;cursor:pointer;">Add Image</a>';
+			// 			echo '<script type="text/javascript"> 
+			// 					$("#add-images").click(function(){
+			// 						var children = $("#additional").children().length;
+			// 						var next = 1 + children + '.$num_uploads.';
+			// 						$("#additional").append(\'<div class="input file"><input type="file" name="data[Images][\' + next + \'][filename]" id="Images\' + next + \'Filename"><input type="hidden" name="data[Images][\' + next + \'][class]" value="'.$this->name.'" id="Images\' + next + \'Class"><input type="hidden" name="data[Images][\' + next + \'][type]" value="blogimg" id="Images\' + next + \'Type"></div>\');
+			// 					});
+			// 				 </script>';
 
 
 

@@ -95,7 +95,7 @@
 				<a href="/" id="logolink"></a>
 				<div id="headernav">
 					<ul>
-						<li><a href="/perfect-sound-news">The News</a></li>
+						<li><a href="/the-news">The News</a></li>
 						<li><a href="/the-gear">The Gear</a></li>
 						<li><a href="/the-rates">The Rates</a></li>
 						<li><a href="/the-experience ">The Experience</a></li>
@@ -126,7 +126,7 @@
 								<p class="widget-text"><?php echo $widget['Widget']['text']?></p>
 								<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
 							<?php else: ?>
-								<h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4>
+								<a target="_blank" href="<?php echo $widget['Widget']['linkurl']?>"><h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4></a>
 								<div class="imagecontainer">
 									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="100px"></a>
 								</div>

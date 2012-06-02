@@ -26,6 +26,7 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'sections', 'action' => 'homepage'));
+	Router::connect('/the-news', array('controller' => 'sections', 'action' => 'theblog'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
@@ -34,12 +35,12 @@
 	//SECTIONS
 	Router::connect('/the-house', array('controller' => 'sections', 'action' => 'view',1));
 	Router::connect('/the-studio', array('controller' => 'sections', 'action' => 'view',2));
-	Router::connect('/the-team', array('controller' => 'sections', 'action' => 'view',5));
+	Router::connect('/the-team', array('controller' => 'sections', 'action' => 'theteam'));
 	Router::connect('/the-experience', array('controller' => 'sections', 'action' => 'view',6));
 	Router::connect('/the-rates', array('controller' => 'sections', 'action' => 'view',7));
 	Router::connect('/the-gear', array('controller' => 'sections', 'action' => 'view',8));
 	
-	Router::connect('/perfect-sound-news', array('controller' => 'news', 'action' => 'index'));
+	//Router::connect('/perfect-sound-news', array('controller' => 'news', 'action' => 'index'));
 	
 	// User login - admin stuff for now
 	Router::connect('/admin', array('controller'=>'sections','action'=>'index','admin'=>true));

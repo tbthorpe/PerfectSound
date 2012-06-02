@@ -13,10 +13,13 @@ class Section extends AppModel {
 			'foreignKey' => 'foreign_id',
 			'conditions' => array('Slides.class'=>'Sections','Slides.type'=>'slideshow'),
 			),
-		'MainImage'=>array('className' => 'Asset',
-							'foreignKey' => 'foreign_id',
-							'conditions' => array('MainImage.class'=>'Sections','MainImage.type'=>'mainimage'),
-							'dependent' => true)
+		'MainImage'=>array(
+			'className' => 'Asset',
+			'foreignKey' => 'foreign_id',
+			'conditions' => array('MainImage.class'=>'Sections','MainImage.type'=>'mainimage'),
+			'dependent' => true,
+			'order'    => 'MainImage.order ASC',
+			)
 		);
 	// public $hasOne = array('MainImage'=>array('className' => 'Asset',
 	// 									'foreignKey' => 'foreign_id',

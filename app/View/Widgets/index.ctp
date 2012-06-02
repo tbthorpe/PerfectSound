@@ -1,6 +1,17 @@
+<style type="text/css" media="screen">
+	.sWidget{paddling-left:20px;min-height:50px;border-bottom:1px solid black;padding-top:20px}
+/*	#sortables ul:nth-child(even) {
+		border-bottom:;
+	}*/
+	#sortables li:nth-child(even) {
+		background: #F9F9F9;
+	}
+	.sWidget SPAN.wTitle{display:block;float:left;width:240px;padding-left:10px;}
+</style>
+
 <div class="widgets index">
 	<h2><?php echo __('Widgets');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<!-- <table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
@@ -10,25 +21,28 @@
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
-	</tr>
+	</tr> -->
+	<ul id="sortables">
 	<?php
+	$i=1;
 	foreach ($widgets as $widget): ?>
-	<tr>
-		<td><?php echo h($widget['Widget']['id']); ?>&nbsp;</td>
-		<td><?php echo h($widget['Widget']['title']); ?>&nbsp;</td>
-		<td><?php echo h($widget['Widget']['text']); ?>&nbsp;</td>
-		<td><?php echo h($widget['Widget']['linkurl']); ?>&nbsp;</td>
-		<td><?php echo h($widget['Widget']['videoembed']); ?>&nbsp;</td>
-		<td><?php echo h($widget['Widget']['created']); ?>&nbsp;</td>
-		<td><?php echo h($widget['Widget']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $widget['Widget']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $widget['Widget']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $widget['Widget']['id']), null, __('Are you sure you want to delete # %s?', $widget['Widget']['id'])); ?>
-		</td>
-	</tr>
+	<!-- <tr> -->
+		<li class="sWidget" id="w_<?php echo $widget['Widget']['id']; ?>">
+		 <span class="wTitle"><?php echo h($widget['Widget']['title']); ?>&nbsp;</span>
+				<!--<span><?php echo h($widget['Widget']['linkurl']); ?>&nbsp;</span>
+				<span><?php echo h($widget['Widget']['videoembed']); ?>&nbsp;</span>
+				<span><?php echo h($widget['Widget']['created']); ?>&nbsp;</span>
+				<span><?php echo h($widget['Widget']['modified']); ?>&nbsp;</span>-->
+				<span class="actions">
+					<?php echo $this->Html->link(__('View'), array('action' => 'view', $widget['Widget']['id'])); ?>
+					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $widget['Widget']['id'])); ?>
+					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $widget['Widget']['id']), null, __('Are you sure you want to delete # %s?', $widget['Widget']['id'])); ?>
+				</span>
+	</li>
+	<?php $i++; ?>
 <?php endforeach; ?>
-	</table>
+</ul>
+	<!-- </table> -->
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -50,3 +64,17 @@
 		<li><?php echo $this->Html->link(__('New Widget'), array('action' => 'add')); ?></li>
 	</ul>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function() {
+	$("#sortables").sortable({
+		update: function(event, ui) {
+			var result = $('#sortables').sortable('serialize');
+			$.get('/widgets/update_order?' + result);
+		}
+	});
+});
+
+</script>
+

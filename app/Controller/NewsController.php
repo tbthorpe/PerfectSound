@@ -124,4 +124,6 @@ class NewsController extends AppController {
 		$this->Session->setFlash(__('Post was not deleted'));
 		$this->redirect(array('action' => 'loggedinindex'));
 	}
+	
+	
 }
