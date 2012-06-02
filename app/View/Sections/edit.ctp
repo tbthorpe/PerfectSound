@@ -34,7 +34,7 @@
 						<?php echo $this->Form->input("MainImage.$i.caption"); ?>
 						<?php echo $this->Form->hidden("MainImage.$i.type"); ?>
 						<?php echo $this->Form->hidden("MainImage.$i.class"); ?>
-					<div class="image-delete">Delete <input type="checkbox" name="data[todelete][<?php echo $this->data['MainImage'][$i]['id']; ?>]" /></div>
+					<div class="image-delete">Delete <input class="image-delete-check" type="checkbox" name="data[todelete][<?php echo $this->data['MainImage'][$i]['id']; ?>]" /></div>
 					</div>
 		<?php	}
 			}
@@ -74,6 +74,17 @@
 				$.get('/sections/update_order?' + result);
 			}
 		});
+		
+		$('.image-delete-check').change(function(){
+			if ($(this).is(':checked')){
+				var r=confirm("Are you really trying to delete this picture? OK if yes.");
+				if (!r){
+					alert("Aight. I unchecked that box for you.");
+					$(this).attr('checked',false);
+				}
+			}
+		});
+		
 	});
 </script>
 
