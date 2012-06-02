@@ -145,14 +145,9 @@
 			<div id="footercontainer">
 				<div id="footernav">
 					<ul>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Sitemap</a></li>
-						<li><a href="/the-gear">Equipment</a></li>
-						<li><a href="/the-team">Engineers</a></li>
-						<li><a href="#">Clients</a></li>
-						<li><a href="#">Services</a></li>
-						<li><a href="#">Luxury Housing Rental</a></li>
-						<li><a href="/the-rates">Rates</a></li>
+						<?php foreach ($footerlinks as $link): ?>
+							<li><a href="<?php echo $link['Footerlink']['url']; ?>"><?php echo $link['Footerlink']['text']; ?></a></li>
+						<?php endforeach; ?>
 						<br style="clear:both;">
 					</ul>
 					<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
