@@ -1,15 +1,13 @@
-<div class="sections index">
+<div class="sections-index">
 	<h2><?php echo __('Sections');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($sections as $section): ?>
 	<tr>
-		<td><?php echo h($section['Section']['id']); ?>&nbsp;</td>
 		<td><?php echo h($section['Section']['name']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $section['Section']['id'])); ?>
@@ -32,10 +30,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<!-- <li><?php echo $this->Html->link(__('New Section'), array('action' => 'add')); ?></li> -->
-	</ul>
 </div>
