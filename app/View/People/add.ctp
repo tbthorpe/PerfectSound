@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('position');
-		echo $this->Form->input('bio');
+		echo $this->Form->input('bio',array('rows'=>15));
 		echo $this->Form->input('MugShot.filename', array('label'=>'Mugshot','type'=>'file'));
 		echo $this->Form->input('MugShot.class', array('type'=>'hidden', 'value'=>$this->name));
 		echo $this->Form->input('MugShot.type', array('type'=>'hidden', 'value'=>'mugshot'));

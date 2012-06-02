@@ -1,3 +1,11 @@
+<script type="text/javascript" charset="utf-8" src="/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript"> 
+    tinyMCE.init({ 
+        theme : "advanced", 
+        mode : "textareas", 
+        convert_urls : false 
+    }); 
+</script>
 <div class="people form">
 <?php echo $this->Form->create('Person',array('type'=>'file'));?>
 	<fieldset>
@@ -6,7 +14,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('position');
-		echo $this->Form->input('bio');
+		echo $this->Form->input('bio',array('rows'=>15));
 	?>
 	<?php
 		$options = array('1' => 'Yes', '0' => 'No');

@@ -13,7 +13,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('copy');?>
+		echo $this->Form->input('copy',array('rows'=>15));?>
 		
 			<!-- <img src="<?php echo "/img/Assets/".$this->data['MainImage']['filename']; ?>" width=300 />  -->
 		<?php
@@ -29,12 +29,12 @@
 					<div style='border:1px solid red;padding:10px;' class="sizzortable" id="w_<?php echo $this->data['MainImage'][$i]['id']; ?>">
 						Type: <?php echo $this->data['MainImage'][$i]['type']; ?><br />
 						<img src="<?php echo "/img/Assets/".$this->data['MainImage'][$i]['filename']; ?>" width=250 /> 
-						<?php echo $this->Form->input("MainImage.$i.filename",array('type'=>'file','label'=>'PUT A NEW PICTURE IN THIS ONES PLACE')); ?>
+						<?php echo $this->Form->input("MainImage.$i.filename",array('type'=>'file','label'=>'Want to replace this one? Use this below!')); ?>
 						<?php echo $this->Form->input("MainImage.$i.id"); ?>
 						<?php echo $this->Form->input("MainImage.$i.caption"); ?>
 						<?php echo $this->Form->hidden("MainImage.$i.type"); ?>
 						<?php echo $this->Form->hidden("MainImage.$i.class"); ?>
-					<div class="image-delete">Delete <input class="image-delete-check" type="checkbox" name="data[todelete][<?php echo $this->data['MainImage'][$i]['id']; ?>]" /></div>
+					<div class="image-delete">Wanna delete? Check this box! <input class="image-delete-check" type="checkbox" name="data[todelete][<?php echo $this->data['MainImage'][$i]['id']; ?>]" /></div>
 					</div>
 		<?php	}
 			}
