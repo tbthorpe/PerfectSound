@@ -14,7 +14,7 @@
 		<td><?php echo h($media['Media']['name']); ?>&nbsp;</td>
 		<td>
 			<img width="125" src="/medialibrary/<?php echo $media['Media']['filename']; ?>"><br/>
-			<span style="font-size:8px">http://perfectsound.local/medialibrary/<?php echo $media['Media']['filename']; ?></span>
+			<span style="font-size:8px"><?php echo $_SERVER['REMOTE_ADDR']; ?>/medialibrary/<?php echo $media['Media']['filename']; ?></span>
 		</td>
 		<td class="actions">
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $media['Media']['id']), null, __('Are you sure you want to delete # %s?', $media['Media']['id'])); ?>
