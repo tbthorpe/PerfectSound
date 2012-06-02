@@ -1,19 +1,23 @@
-<div class="sections index">
-	<h2><?php echo __('Sections');?></h2>
+<div class="media index">
+	<h2><?php echo __('Media');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('filename');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
-	foreach ($sections as $section): ?>
+	foreach ($media as $media): ?>
 	<tr>
-		<td><?php echo h($section['Section']['id']); ?>&nbsp;</td>
-		<td><?php echo h($section['Section']['name']); ?>&nbsp;</td>
+		<td><?php echo h($media['Media']['id']); ?>&nbsp;</td>
+		<td><?php echo h($media['Media']['name']); ?>&nbsp;</td>
+		<td>
+			<img width="125" src="/medialibrary/<?php echo $media['Media']['filename']; ?>"><br/>
+			<span style="font-size:8px">http://perfectsound.local/medialibrary/<?php echo $media['Media']['filename']; ?></span>
+		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $section['Section']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $section['Section']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $media['Media']['id']), null, __('Are you sure you want to delete # %s?', $media['Media']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -36,6 +40,6 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<!-- <li><?php echo $this->Html->link(__('New Section'), array('action' => 'add')); ?></li> -->
+		<li><?php echo $this->Html->link(__('New Media'), array('action' => 'add')); ?></li>
 	</ul>
 </div>

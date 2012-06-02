@@ -29,11 +29,11 @@ body {
 	margin: 0;
 }
 a {
-	color: #ffffff;
+	color: rgb(255,63,36);
 	text-decoration: none;
 }
 a:hover {
-	color: #ffffff;
+	color: rgb(255,63,36);
 	text-decoration:none;
 }
 a img {

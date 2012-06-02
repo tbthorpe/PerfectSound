@@ -27,6 +27,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $title_for_layout; ?>
 	</title>
 	<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -43,7 +44,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<ul>
 					<li><a href="/users/logout">Logout</a></li>
 					<li><a href="/users">Users</a></li>
+					<li><a href="/media">Media</a></li>
 					<li><a href="/widgets">Footer Widgets</a></li>
+					<li><a href="/people">Staff</a></li>
 					<li><a href="/news/loggedinindex">Blog</a></li>
 					<li><a href="/sections">Site Sections</a></li>
 				</ul>

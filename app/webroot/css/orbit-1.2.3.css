@@ -127,17 +127,18 @@ span.pause.active {
     font-family: "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
 
 .orbit-wrapper .orbit-caption {
-    background: #000;
-    background: rgba(0,0,0,.6);
-    z-index: 1000;
+/*    background: #000;
+    background: rgba(0,0,0,.6);*/
+    z-index: 1005;
     color: #fff;
 	text-align: center;
 	padding: 7px 0;
     font-size: 13px;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%; }
+	left: 20px;
+    bottom: 25px;
+/*    width: 100%;*/
+ }
 
 
 /* DIRECTIONAL NAV

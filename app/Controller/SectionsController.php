@@ -6,12 +6,13 @@ App::uses('AppController', 'Controller');
  * @property Section $Section
  */
 class SectionsController extends AppController {
-	public $uses = array('Section','News');
-
+	public $uses = array('Section','News','Person','Asset');
+	public $helpers = array("BlogImage");
+	var $paginate = array('News'=>array('limit'=>5));
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('view','homepage');
+		$this->Auth->allow('view','homepage','theblog','theteam','update_order');
 	}
 	
 	public function index() {
@@ -39,6 +40,28 @@ class SectionsController extends AppController {
 		$this->set('section', $this->Section->read(null,9));
 		$news = $this->News->getSomeHeadlines(3);
 		$this->set('news',$news);
+	}
+	
+	public function theteam(){
+		$this->Section->id = 5;
+		if (!$this->Section->exists()) {
+			throw new NotFoundException(__('Invalid section'));
+		}
+		$this->set('section', $this->Section->read(null,5));
+		$news = $this->News->getSomeHeadlines(3);
+		$this->set('news',$news);
+		$team = $this->Person->getFullTeam();
+		$this->set('team',$team);
+	}
+	
+	public function theblog(){
+		$this->layout='default';
+		$this->Section->id = 10;
+		if (!$this->Section->exists()) {
+			throw new NotFoundException(__('Invalid section'));
+		}
+		$this->set('section', $this->Section->read(null,10));
+		$this->set('news', $this->paginate($this->News));
 	}
 
 	public function add() {
@@ -99,5 +122,17 @@ class SectionsController extends AppController {
 		}
 		$this->Session->setFlash(__('Section was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function update_order() {
+		// debug($_GET['w']);
+		
+		foreach ($_GET['w'] as $order => $id) {
+			
+			$this->Asset->id = $id;
+			//debug($this->Widget->id);
+			$this->Asset->saveField('order', $order);
+		}
+		$this->render(false);
 	}
 }

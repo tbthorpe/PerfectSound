@@ -17,6 +17,6 @@ class AppController extends Controller {
 	        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
 	        $this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
 			$this->Auth->allow('display');
-			$this->set('widgets',$this->Widget->find('all'));
+			$this->set('widgets',$this->Widget->find('all', array('order'=> array('Widget.ordernum'=>'asc'))));
 	    }
 }

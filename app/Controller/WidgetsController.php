@@ -7,6 +7,16 @@ App::uses('AppController', 'Controller');
  */
 class WidgetsController extends AppController {
 
+	public $paginate = array(
+	        'order' => array(
+	            'Widget.ordernum' => 'asc'
+	        )
+	    );
+
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('update_order');
+	}
 
 /**
  * index method
@@ -100,5 +110,17 @@ class WidgetsController extends AppController {
 		}
 		$this->Session->setFlash(__('Widget was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function update_order() {
+		// debug($_GET['w']);
+		
+		foreach ($_GET['w'] as $order => $id) {
+			
+			$this->Widget->id = $id;
+			//debug($this->Widget->id);
+			$this->Widget->saveField('ordernum', $order);
+		}
+		$this->render(false);
 	}
 }

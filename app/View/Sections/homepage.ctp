@@ -25,13 +25,16 @@
 	<div id="homesliderbg"></div>
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
 		<?php foreach($section['MainImage'] as $img): ?>
-			<img src="/img/Assets/<?php echo $img['filename']; ?>">
+			<img src="/img/Assets/<?php echo $img['filename']; ?>" <?php echo (1) ? "data-caption='#cap".$img['id']."'":''?>> <!-- end image tag -->
 		<?php endforeach; ?>
 	</div>
 
 	<div class="sectionname homepage">
 		<h1>Perfect Sound's Grand Re-Opening</h1>
-		<h4>After $10.5 million in renovations, the new studio is unveiled to LA. See what's new</h4> 
+		<?php foreach($section['MainImage'] as $img): ?>
+			<h4 class="orbit-caption" id="cap<?php echo $img['id']; ?>"><?php echo $img['caption']; ?></h4>
+		<?php endforeach; ?>
+		
 	</div>
 
 	<div id="homepage_news" class="allnewsmodule">

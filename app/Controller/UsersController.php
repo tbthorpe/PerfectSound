@@ -9,7 +9,8 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 	    parent::beforeFilter();
-	    $this->Auth->allow('login','logout','requestRates');
+	    // $this->Auth->allow('login','logout','requestRates','initDB');
+	$this->Auth->allow('*');
 	}
 	public function initDB() {
 	    $group = $this->User->Group;
@@ -22,6 +23,8 @@ class UsersController extends AppController {
 	    $this->Acl->deny($group, 'controllers');
 	    $this->Acl->allow($group, 'controllers/Sections');
 		$this->Acl->allow($group, 'controllers/News');
+		// $this->Acl->allow($group, 'controllers/Media');
+		// $this->Acl->allow($group, 'controllers/Media');
 	
 	    // $group->id = 3;
 	    // $this->Acl->deny($group, 'controllers');

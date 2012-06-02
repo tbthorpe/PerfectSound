@@ -34,7 +34,8 @@ class News extends AppModel {
 		$news = $this->find('all',array(
 			'fields'=>array('News.title','News.slug','BlogThumb.filename'),
 			'recursive'=>0,
-			'order'=>array('News.created'=>'DESC'),
+			'order'=>array('News.displaydate'=>'DESC'),
+			'conditions' => array('News.inwidget'=>1),
 			'limit'=>$num
 		));
 		return $news;
@@ -44,5 +45,18 @@ class News extends AppModel {
 		return $this->find('first',array(
 			'conditions'=>array('News.slug'=>$slug)));
 	}
+	
+	// public function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
+	//     // $recursive = -1;
+	//     // $group = $fields = array('week', 'away_team_id', 'home_team_id');
+	//     return $this->find('all', compact('conditions', 'fields', 'order', 'limit', 'page', 'recursive', 'group'));
+	// }
+	// 
+	// public function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
+	//     $sql = "SELECT COUNT(id) FROM news";
+	//     $this->recursive = $recursive;
+	//     $results = $this->query($sql);
+	//     return $results;
+	// }
 
 }
