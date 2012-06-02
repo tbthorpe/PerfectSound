@@ -38,7 +38,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container">
-		<div id="header">
+		<div id="header" style="border-bottom:1px solid grey;margin-bottom:20px;">
 			<a href="/" id="logolink"></a>
 			<div id="headernav">
 				<ul>

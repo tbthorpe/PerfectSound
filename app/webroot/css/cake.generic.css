@@ -433,7 +433,7 @@ fieldset fieldset div {
 }
 form div {
 	clear: both;
-	margin-bottom: 1em;
+	margin-bottom: .2em;
 	padding: .5em;
 	vertical-align: text-top;
 }
@@ -455,26 +455,26 @@ form div.submit {
 }
 label {
 	display: block;
-	font-size: 110%;
+	font-size: 90%;
 	margin-bottom:3px;
 }
 input, textarea {
 	clear: both;
-	font-size: 140%;
+	font-size: 90%;
 	font-family: "frutiger linotype", 'nimbus-sans', "verdana", sans-serif;
 	padding: 1%;
 	width:98%;
 }
 select {
 	clear: both;
-	font-size: 120%;
+	font-size: 90%;
 	vertical-align: text-bottom;
 }
 select[multiple=multiple] {
 	width: 100%;
 }
 option {
-	font-size: 120%;
+	font-size: 85%;
 	padding: 0 3px;
 }
 input[type=checkbox] {
@@ -491,7 +491,7 @@ input[type=radio] {
 	width:auto;
 	margin: 6px 0;
 	padding: 0;
-	line-height: 26px;
+	line-height: 24px;
 }
 .radio label {
 	margin: 0 0 6px 20px;

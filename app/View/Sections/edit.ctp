@@ -27,7 +27,6 @@
 			for ($i=0; $i<$num_uploads; ++$i){
 				if(isset($this->data['MainImage'][$i])){ ?>
 					<div style='border:1px solid red;padding:10px;' class="sizzortable" id="w_<?php echo $this->data['MainImage'][$i]['id']; ?>">
-						Type: <?php echo $this->data['MainImage'][$i]['type']; ?><br />
 						<img src="<?php echo "/img/Assets/".$this->data['MainImage'][$i]['filename']; ?>" width=250 /> 
 						<?php echo $this->Form->input("MainImage.$i.filename",array('type'=>'file','label'=>'Want to replace this one? Use this below!')); ?>
 						<?php echo $this->Form->input("MainImage.$i.id"); ?>
