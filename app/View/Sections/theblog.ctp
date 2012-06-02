@@ -1,4 +1,3 @@
-<?php debug(NEWS); ?>
 <style type="text/css" media="screen">
 	.sectionheader{
 		width:800px;
