@@ -872,6 +872,7 @@ pre {
 }
 
 /* BLOG PAGE */
+#allposts {margin-top:20px}
 #allposts h2{margin-bottom:40px;}
 #allposts .news-post{border-bottom:1px dotted #ff0000;margin-bottom:20px;}
 #allposts .news-post h3 a{color:#444444;font-weight:bold;font-family:'nimbus-sans',verdana,helvetica,arial,sans-serif;margin-bottom:5px;}
