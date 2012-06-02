@@ -331,3 +331,20 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+
+// SITE SECTION DEFINITIONS
+switch($_SERVER['SERVER_NAME']){
+	case ('perfectsoundmixing.com'):
+	case ('www.perfectsoundmixing.com'):
+	case ('50.56.226.115'):
+		define('NEWS',11);
+		define('TEAM',5);
+		define('GEAR',8);
+	break;
+	case ('perfectsound.local'):
+		define('NEWS',11);
+		define('TEAM',5);
+		define('GEAR',8);
+	break;			
+}

@@ -12,7 +12,7 @@ class SectionsController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('view','homepage','theblog','theteam','update_order');
+		$this->Auth->allow('view','homepage','theblog','theteam','thegear','update_order');
 	}
 	
 	public function index() {
@@ -43,11 +43,11 @@ class SectionsController extends AppController {
 	}
 	
 	public function theteam(){
-		$this->Section->id = 5;
+		$this->Section->id = TEAM;
 		if (!$this->Section->exists()) {
 			throw new NotFoundException(__('Invalid section'));
 		}
-		$this->set('section', $this->Section->read(null,5));
+		$this->set('section', $this->Section->read(null,TEAM));
 		$news = $this->News->getSomeHeadlines(3);
 		$this->set('news',$news);
 		$team = $this->Person->getFullTeam();
@@ -56,12 +56,23 @@ class SectionsController extends AppController {
 	
 	public function theblog(){
 		$this->layout='default';
-		$this->Section->id = 10;
+		$this->Section->id = NEWS;
 		if (!$this->Section->exists()) {
 			throw new NotFoundException(__('Invalid section'));
 		}
-		$this->set('section', $this->Section->read(null,10));
+		$this->set('section', $this->Section->read(null,NEWS));
 		$this->set('news', $this->paginate($this->News));
+	}
+	
+	public function thegear(){
+		$this->layout='default';
+		$this->Section->id = GEAR;
+		if (!$this->Section->exists()) {
+			throw new NotFoundException(__('Invalid section'));
+		}
+		$this->set('section', $this->Section->read(null,GEAR));
+		$news = $this->News->getSomeHeadlines(3);
+		$this->set('news',$news);
 	}
 
 	public function add() {
