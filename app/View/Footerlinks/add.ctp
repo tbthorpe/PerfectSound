@@ -5,7 +5,10 @@
 	<?php
 		echo $this->Form->input('text');
 		echo $this->Form->input('url');
-		echo $this->Form->input('visible');
+	?>
+	<?php
+		$options = array('1' => 'Yes', '0' => 'No');
+		echo $this->Form->input('visible', array('options'=>$options,'label'=>'Show in footer?','empty'=>false));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

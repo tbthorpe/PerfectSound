@@ -6,7 +6,16 @@ App::uses('AppController', 'Controller');
  * @property Footerlink $Footerlink
  */
 class FooterlinksController extends AppController {
+	public $paginate = array(
+	        'order' => array(
+	            'Footerlink.order' => 'asc'
+	        )
+	    );
 
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('update_order');
+	}
 
 /**
  * index method
@@ -16,7 +25,7 @@ class FooterlinksController extends AppController {
 	public function index() {
 		$this->layout='admin';
 		$this->Footerlink->recursive = 0;
-		$this->set('footerlinks', $this->paginate());
+		$this->set('footerlinks', $this->Footerlink->find('all',array('order'=>array('Footerlink.order ASC'))));
 	}
 
 /**
@@ -96,5 +105,14 @@ class FooterlinksController extends AppController {
 		}
 		$this->Session->setFlash(__('Footerlink was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	
+	function update_order() {
+		foreach ($_GET['w'] as $order => $id) {
+			$this->Footerlink->id = $id;
+			$this->Footerlink->saveField('order', $order);
+		}
+		$this->render(false);
 	}
 }
