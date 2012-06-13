@@ -30,9 +30,12 @@
 	</div>
 
 	<div class="sectionname homepage">
-		<h1>Perfect Sound's Grand Re-Opening</h1>
 		<?php foreach($section['MainImage'] as $img): ?>
-			<h4 class="orbit-caption" id="cap<?php echo $img['id']; ?>"><?php echo $img['caption']; ?></h4>
+			<div class="orbit-caption" id="cap<?php echo $img['id']; ?>">
+				<h1><?php echo $img['headline']; ?></h1>
+				<h4><?php echo $img['caption']; ?></h4>
+			</div>
+
 		<?php endforeach; ?>
 		
 	</div>

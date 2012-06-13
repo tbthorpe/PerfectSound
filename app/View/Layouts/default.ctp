@@ -127,8 +127,8 @@
 								<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
 							<?php else: ?>
 								<a target="_blank" href="<?php echo $widget['Widget']['linkurl']?>"><h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4></a>
-								<div class="imagecontainer">
-									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="70px"></a>
+								<div class="imagecontainer" <?php echo (empty($widget['Widget']['title'])) ? "style='height:90px;'" : ""; ?>>
+									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="100%"></a>
 								</div>
 							<?php endif; ?>
 						<?php else: ?>

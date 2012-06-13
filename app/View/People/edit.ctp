@@ -25,7 +25,7 @@
 		<?php echo $this->Form->input('MugShot.id', array('type'=>'hidden', 'value'=>$this->data['MugShot']['id']));?>
 	<?php endif; ?>
 	<?php
-
+	echo $this->Form->input('MugShot.id');
 	echo $this->Form->input('MugShot.filename', array('label'=>'Ugly Mug','type'=>'file'));
 	echo $this->Form->input('MugShot.class', array('type'=>'hidden', 'value'=>$this->name));
 	echo $this->Form->input('MugShot.type', array('type'=>'hidden', 'value'=>'mugshot'));
