@@ -127,8 +127,8 @@
 								<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
 							<?php else: ?>
 								<a target="_blank" href="<?php echo $widget['Widget']['linkurl']?>"><h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4></a>
-								<div class="imagecontainer">
-									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="70px"></a>
+								<div class="imagecontainer" <?php echo (empty($widget['Widget']['title'])) ? "style='height:90px;'" : ""; ?>>
+									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo $widget['Widget']['text']; ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="100%"></a>
 								</div>
 							<?php endif; ?>
 						<?php else: ?>
@@ -145,14 +145,9 @@
 			<div id="footercontainer">
 				<div id="footernav">
 					<ul>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Sitemap</a></li>
-						<li><a href="/the-gear">Equipment</a></li>
-						<li><a href="/the-team">Engineers</a></li>
-						<li><a href="#">Clients</a></li>
-						<li><a href="#">Services</a></li>
-						<li><a href="#">Luxury Housing Rental</a></li>
-						<li><a href="/the-rates">Rates</a></li>
+						<?php foreach ($footerlinks as $link): ?>
+							<li><a href="<?php echo $link['Footerlink']['url']; ?>"><?php echo $link['Footerlink']['text']; ?></a></li>
+						<?php endforeach; ?>
 						<br style="clear:both;">
 					</ul>
 					<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>

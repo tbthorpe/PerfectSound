@@ -22,7 +22,8 @@ class Person extends AppModel {
 		
 	public function getFullTeam(){
 		return $this->find('all',array(
-			'conditions'=>array('Person.visible'=>1)
+			'conditions'=>array('Person.visible'=>1),
+			'order'=>array('Person.order ASC')
 		));
 	}
 }

@@ -6,6 +6,16 @@ App::uses('AppController', 'Controller');
  * @property Person $Person
  */
 class PeopleController extends AppController {
+	public $paginate = array(
+	        'order' => array(
+	            'Person.order' => 'asc'
+	        )
+	    );
+
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('update_order');
+	}
 
 /**
  * index method
@@ -95,5 +105,13 @@ class PeopleController extends AppController {
 		}
 		$this->Session->setFlash(__('Person was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function update_order() {
+		foreach ($_GET['w'] as $order => $id) {
+			$this->Person->id = $id;
+			$this->Person->saveField('order', $order);
+		}
+		$this->render(false);
 	}
 }

@@ -131,7 +131,7 @@ span.pause.active {
     background: rgba(0,0,0,.6);*/
     z-index: 1005;
     color: #fff;
-	text-align: center;
+/*	text-align: center;*/
 	padding: 7px 0;
     font-size: 13px;
     position: absolute;

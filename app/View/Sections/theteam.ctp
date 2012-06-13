@@ -40,7 +40,7 @@
 			<?php $i=1; ?>
 			<?php foreach ($news as $post): ?>
 				<div class="section-news-post">
-					<h2><?php echo $i."."; $i++; ?></h2>
+					<!-- <h2><?php echo $i."."; $i++; ?></h2> -->
 					<img class="newsthumb" src="/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>">
 					<h1><a href="/news/view/<?php echo $post['News']['slug']; ?>"><?php echo $post['News']['title']; ?></a></h1>
 					<div style="clear:both;"></div>
