@@ -1,5 +1,5 @@
 <style type="text/css" media="screen">
-	.sWidget{paddling-left:20px;min-height:50px;border-bottom:1px solid black;padding-top:20px}
+	.sWidget{paddling-left:20px;min-height:50px;border-bottom:1px solid black;padding:20px}
 /*	#sortables ul:nth-child(even) {
 		border-bottom:;
 	}*/
@@ -28,6 +28,9 @@
 	foreach ($widgets as $widget): ?>
 	<!-- <tr> -->
 		<li class="sWidget" id="w_<?php echo $widget['Widget']['id']; ?>">
+			<?php if (!empty($widget['WidgImg']['filename'])): ?>
+				<img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="75px" style="float:left;margin-bottom:10px;">
+			<?php endif; ?>
 		 <span class="wTitle"><?php echo h($widget['Widget']['title']); ?>&nbsp;</span>
 				<!--<span><?php echo h($widget['Widget']['linkurl']); ?>&nbsp;</span>
 				<span><?php echo h($widget['Widget']['videoembed']); ?>&nbsp;</span>
@@ -38,6 +41,7 @@
 					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $widget['Widget']['id'])); ?>
 					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $widget['Widget']['id']), null, __('Are you sure you want to delete # %s?', $widget['Widget']['id'])); ?>
 				</span>
+				<div class="clearfix"></div>
 	</li>
 	<?php $i++; ?>
 <?php endforeach; ?>

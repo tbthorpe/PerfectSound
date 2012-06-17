@@ -952,8 +952,8 @@ pre {
 	margin-top:35px;
 }
 #section-content a{
-	color:#646464;
-	font-weight:bold;
+	color:#ffffff;
+
 }
 .section-copy{
 	float:left;
@@ -1120,6 +1120,11 @@ pre {
 }
 .section-news-post h1 a, .section-news-post h1 a:hover{
 	color:black;
+}
+.section-news-post h1 .newsdate{
+	color: #CCC;
+	margin-left: 3px;
+	font-size: 10px;
 }
 .section-news-post img{
 	margin:4px 4px 4px 1px;
