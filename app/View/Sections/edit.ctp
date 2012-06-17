@@ -21,6 +21,7 @@
 		// 		echo $this->Form->input('MainImage.class', array('type'=>'hidden', 'value'=>$this->name));
 		// 		echo $this->Form->input('MainImage.type', array('type'=>'hidden', 'value'=>'mainimage'));
 		// 		echo $this->Form->input('MainImage.id', array('type'=>'hidden', 'value'=>$this->data['MainImage']['id'])); ?>
+		<h4 style="margin-top:20px;color:red;">Images need to be 800x400</h4>
 		<div id="assetssortables">
 		<?php $num_uploads = sizeof($this->data['MainImage']);
 		if ($num_uploads > 0):
