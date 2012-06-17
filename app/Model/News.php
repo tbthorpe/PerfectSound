@@ -32,7 +32,7 @@ class News extends AppModel {
 		
 	public function getSomeHeadlines($num){
 		$news = $this->find('all',array(
-			'fields'=>array('News.title','News.slug','BlogThumb.filename'),
+			'fields'=>array('News.title','News.slug','News.displaydate','BlogThumb.filename'),
 			'recursive'=>0,
 			'order'=>array('News.displaydate'=>'DESC'),
 			'conditions' => array('News.inwidget'=>1),

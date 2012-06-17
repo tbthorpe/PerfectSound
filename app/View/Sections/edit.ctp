@@ -30,7 +30,7 @@
 						<img src="<?php echo "/img/Assets/".$this->data['MainImage'][$i]['filename']; ?>" width=250 /> 
 						<?php echo $this->Form->input("MainImage.$i.filename",array('type'=>'file','label'=>'Want to replace this one? Use this below!')); ?>
 						<?php echo $this->Form->input("MainImage.$i.id"); ?>
-						<?php if ($this->data['Section']['name'] == 'homepage'): ?>
+						<?php if ($this->data['Section']['name'] == 'homepage' || $this->data['Section']['name'] == 'The News'): ?>
 							<?php echo $this->Form->input("MainImage.$i.headline"); ?>
 							<?php echo $this->Form->input("MainImage.$i.caption"); ?>
 						<?php endif; ?>

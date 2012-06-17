@@ -35,7 +35,6 @@
 				<h1><?php echo $img['headline']; ?></h1>
 				<h4><?php echo $img['caption']; ?></h4>
 			</div>
-
 		<?php endforeach; ?>
 		
 	</div>
@@ -47,7 +46,10 @@
 			<div class="section-news-post">
 				<!-- <h2><?php echo $i."."; $i++; ?></h2> -->
 				<img class="newsthumb" src="/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>">
-				<h1><a href="/news/view/<?php echo $post['News']['slug']; ?>"><?php echo $post['News']['title']; ?></a></h1>
+				<h1>
+					<a href="/news/view/<?php echo $post['News']['slug']; ?>"><?php echo $post['News']['title']; ?></a>
+					<span class="newsdate">(<?php echo $post['News']['displaydate']; ?>)</span>
+				</h1>
 				<div style="clear:both;"></div>
 			</div>
 		<?php endforeach; ?>

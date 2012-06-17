@@ -25,13 +25,17 @@
 	<div id="homesliderbg"></div>
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
 		<?php foreach($section['MainImage'] as $img): ?>
-			<img src="/img/Assets/<?php echo $img['filename']; ?>">
+			<img src="/img/Assets/<?php echo $img['filename']; ?>" <?php echo (1) ? "data-caption='#cap".$img['id']."'":''?>> <!-- end image tag -->
 		<?php endforeach; ?>
 	</div>
 
 	<div class="sectionname homepage">
-		<h1>What's going on at Perfect Sound</h1>
-		<h4>Check us, sons.</h4> 
+		<?php foreach($section['MainImage'] as $img): ?>
+			<div class="orbit-caption" id="cap<?php echo $img['id']; ?>">
+				<h1><?php echo $img['headline']; ?></h1>
+				<h4><?php echo $img['caption']; ?></h4>
+			</div>
+		<?php endforeach; ?>
 	</div>
 
 	
