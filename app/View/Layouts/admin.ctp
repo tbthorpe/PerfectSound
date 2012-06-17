@@ -45,6 +45,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<li><a href="/users/logout">Logout</a></li>
 					<li><a href="/users">Users</a></li>
 					<li><a href="/media">Media</a></li>
+					<li><a href="/footerlinks">Footer Links</a></li>
 					<li><a href="/widgets">Footer Widgets</a></li>
 					<li><a href="/people">Staff</a></li>
 					<li><a href="/news/loggedinindex">Blog</a></li>
