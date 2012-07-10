@@ -60,11 +60,12 @@
 		$('#homepage_news #newsheader').toggle(
 			function(){
 				$('#homepage_news').animate({"height": "196px"}, "slow");
-				$('#minimizearrow').html('&darr;');
+				$('#minimizearrow').attr('src','/img/downarrow.png');
 			},
 			function(){
 				$('#homepage_news').animate({"height": "31px"}, "slow");
-				$('#minimizearrow').html('&uarr;');
+				// $('#minimizearrow').html('&uarr;');
+				$('#minimizearrow').attr('src','/img/uparrow.png');
 			});
 		
 			$(".widgimg").fancybox({
