@@ -51,7 +51,7 @@ class DATABASE_CONFIG {
 				'persistent' => false,
 				'host' => '127.0.0.1',
 				'login' => 'root',
-				'password' => 'root',
+				'password' => '',
 				'database' => 'perfectsound',
 				'prefix' => '',
 				'encoding' => 'utf8',

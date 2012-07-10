@@ -40,7 +40,7 @@
 	</div>
 
 	<div id="homepage_news" class="allnewsmodule">
-		<div id="newsheader"><a href="/perfect-sound-news">NEWS</a><span id="minimizearrow" style="float:right;">&uarr;</span></div>
+		<div id="newsheader"><a href="/perfect-sound-news">NEWS</a><img id="minimizearrow" style="float:right;margin-top:6px;" src="/img/uparrow.png"></div>
 		<?php $i=1; ?>
 		<?php foreach ($news as $post): ?>
 			<div class="section-news-post">
