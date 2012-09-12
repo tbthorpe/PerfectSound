@@ -1,7 +1,7 @@
 <style type="text/css" media="screen">
 	.sectionheader{
 		width:800px;
-		height:400px;
+		height:120px;
 		overflow:hidden;
 		/*background:url(/img/homepage-1.jpg) no-repeat;*/
 		color:white;
