@@ -32,7 +32,7 @@ date_default_timezone_set('America/New_York');
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 1);
+	Configure::write('debug', 0);
 
 /**
  * Configure the Error handler used to handle errors for your application.  By default
@@ -337,6 +337,9 @@ Cache::config('_cake_model_', array(
 switch($_SERVER['SERVER_NAME']){
 	case ('perfectsoundmixing.com'):
 	case ('www.perfectsoundmixing.com'):
+	case ('perfectsoundstudios.com'):
+	case ('www.perfectsoundstudios.com'):
+	case ('secret.perfectsoundstudios.com'):
 	case ('50.56.226.115'):
 		define('NEWS',11);
 		define('TEAM',5);
