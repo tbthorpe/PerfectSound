@@ -61,6 +61,9 @@ class DATABASE_CONFIG {
 			case ('perfectsoundmixing.com'):
 			case ('www.perfectsoundmixing.com'):
 			case ('50.56.226.115'):
+			case ('perfectsoundstudios.com'):
+			case ('www.perfectsoundstudios.com'):
+			case ('secret.perfectsoundstudios.com'):
 				$this->default = $this->production;
 			break;
 			case ('perfectsound.local'):

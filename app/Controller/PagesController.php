@@ -7,7 +7,10 @@ App::uses('AppController', 'Controller');
  */
 class PagesController extends AppController {
 	public $uses = array('Pages','News');
-	
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('display','clients');
+	}
 	function display() {
 		$path = func_get_args();
 
@@ -38,5 +41,8 @@ class PagesController extends AppController {
 	function home(){
 		$this->set('asdf','asdf');
 		$this->set('news',$this->News->getSomeHeadlines(3));
+	}
+	function clients(){
+		
 	}
 }

@@ -28,6 +28,7 @@
 	Router::connect('/', array('controller' => 'sections', 'action' => 'homepage'));
 	Router::connect('/the-news', array('controller' => 'sections', 'action' => 'theblog'));
 	Router::connect('/the-gear', array('controller' => 'sections', 'action' => 'thegear'));
+	Router::connect('/clients', array('controller' => 'pages', 'action' => 'clients'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
