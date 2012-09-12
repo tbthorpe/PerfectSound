@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class SectionsController extends AppController {
 	public $uses = array('Section','News','Person','Asset');
 	public $helpers = array("BlogImage");
-	var $paginate = array('News'=>array('limit'=>5));
+	var $paginate = array('News'=>array('limit'=>5, 'order'=>array('News.displaydate'=>'DESC')));
 
 	public function beforeFilter(){
 		parent::beforeFilter();
