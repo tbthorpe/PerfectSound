@@ -30,11 +30,12 @@
 	</div>
 
 	<div class="sectionname homepage">
+		<h1><?php echo $section['Section']['name']; ?></h1>
 		<?php foreach($section['MainImage'] as $img): ?>
-			<div class="orbit-caption" id="cap<?php echo $img['id']; ?>">
+			<!-- <div class="orbit-caption" id="cap<?php echo $img['id']; ?>">
 				<h1><?php echo $img['headline']; ?></h1>
 				<h4><?php echo $img['caption']; ?></h4>
-			</div>
+			</div> -->
 		<?php endforeach; ?>
 	</div>
 
