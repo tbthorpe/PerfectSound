@@ -2,6 +2,9 @@
 
 	#homeslider { background: #000 url('orbit/loading.gif') no-repeat center center; overflow: hidden; },  
 	#homeslider img { display: none; }
+	<?php if($this->here == '/the-clients'): ?>
+		.sectionheader{height:120px;}
+	<?php endif; ?>
 </style>
 <script type="text/javascript">
      $(window).load(function() {
