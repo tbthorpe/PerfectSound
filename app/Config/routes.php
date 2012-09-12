@@ -40,6 +40,7 @@
 	Router::connect('/the-team', array('controller' => 'sections', 'action' => 'theteam'));
 	Router::connect('/the-experience', array('controller' => 'sections', 'action' => 'view',6));
 	Router::connect('/the-rates', array('controller' => 'sections', 'action' => 'view',7));
+	Router::connect('/the-clients', array('controller' => 'sections', 'action' => 'view',10));
 	
 	//Router::connect('/perfect-sound-news', array('controller' => 'news', 'action' => 'index'));
 	
