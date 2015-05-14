@@ -55,7 +55,7 @@
 </style>
 <script type="text/javascript">
      $(window).load(function() {
-         $('#homeslider').orbit({timer:false});
+         $('#homeslider').orbit({directionalNav:true,timer:false});
      });
 </script>
 <div class="sectionheader">

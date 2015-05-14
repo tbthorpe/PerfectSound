@@ -1,4 +1,5 @@
 <?php
+App::uses('CakeEmail', 'Network/Email');
 class AppController extends Controller {
 	public $components = array(
 	        'Acl',
@@ -7,7 +8,8 @@ class AppController extends Controller {
 	                'Actions' => array('actionPath' => 'controllers')
 	            )
 	        ),
-	        'Session'
+	        'Session',
+		'Email'
 	    );
 	    public $helpers = array('Html', 'Form', 'Session');
 		public $uses = array ('Widget','Footerlink');

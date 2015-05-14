@@ -159,11 +159,17 @@ div.slider-nav span {
 
 div.slider-nav span.right {
     background: url(/orbit/right-arrow.png);
-    right: 0; }
+    right: 0; 
+    opacity:.6;
+}
 
 div.slider-nav span.left {
     background: url(/orbit/left-arrow.png);
-    left: 0; }
+    left: 0;
+    opacity:.6;}
+
+div.slider-nav span.left:hover, div.slider-nav span.right:hover {
+    opacity:1;}
 
 /* BULLET NAV
    ================================================== */

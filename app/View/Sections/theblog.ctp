@@ -21,7 +21,7 @@
          $('#homeslider').orbit({timer:true,bullets:true,directionalNav:false,advanceSpeed:8000});
      });
 </script>
-<div class="sectionheader">
+<div class="sectionheader" style="height:90px;">
 	<div id="homesliderbg"></div>
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
 		<?php foreach($section['MainImage'] as $img): ?>

@@ -18,8 +18,13 @@
 </style>
 <script type="text/javascript">
      $(window).load(function() {
-         $('#homeslider').orbit({timer:true,bullets:true,directionalNav:false,advanceSpeed:8000});
-     });
+         $('#homeslider').orbit({timer:true,bullets:true,directionalNav:true,advanceSpeed:8000});
+         var t=setTimeout(function(){
+				var h = $('#homepage_news').height();
+                var p = h - 31;
+				$('#homepage_news').animate({"bottom": "-"+p+"px"}, "slow"); },2000);
+                //$('#homepage_news').animate({"bottom": "0px"}, "slow"); },2000);
+             });
 </script>
 <div class="sectionheader">
 	<div id="homesliderbg"></div>
@@ -45,8 +50,8 @@
 		<?php foreach ($news as $post): ?>
 			<div class="section-news-post">
 				<!-- <h2><?php echo $i."."; $i++; ?></h2> -->
-				<img class="newsthumb" src="/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>">
-				<h1>
+                <div style="height: 40px; float: left; background: url(/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>) no-repeat scroll 50% 50% / contain  transparent; width: 40px;padding-right:6px;" class="imgbg"></div>
+				<h1 class="smaller">
 					<a href="/news/view/<?php echo $post['News']['slug']; ?>"><?php echo $post['News']['title']; ?></a>
 					<span class="newsdate">(<?php echo $post['News']['displaydate']; ?>)</span>
 				</h1>

@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Users Controller
  *
@@ -161,12 +162,36 @@ class UsersController extends AppController {
 				            mysql_escape_string($comments));
 				debug($query);
 				$this->User->query($query);
-				$to = "tbthorpe@gmail.com";
+				$to = "info@perfectsoundstudios.com";
 				$subject = "PSS RATE INQUIRY";
-				$message = "Yeah these people said this: \n".$comments;
+				$message = "From: " . $email . "\n\n" . $comments."\n\nSubmitted via perfectsoundstudios.com";
 				$from = $email;
 				$headers = "From:" . $from;
+                $headers = 'From: '.$from . "\r\n" .
+                        'Reply-To: '.$from. "\r\n" .
+                            'X-Mailer: PHP/' . phpversion();
 				mail($to,$subject,$message,$headers);
+				//$this->Email->smtpOptions = array(
+				//'port'=>'465',
+				//'timeout'=>'30',
+				//'host' => 'ssl://smtp.gmail.com',
+				//'username'=>'tbthorpe@gmail.com',
+				//'password'=>'15#?*N468I(e',
+				//);
+
+				//$this->Email->from = 'Test Guy';
+				//$this->Email->delivery = 'smtp';
+				//$this->Email->sendAs = 'html';
+
+				//$this->Email->to = 'tbthorpe@gmail.com';
+				//$this->Email->subject = "hey tim whats good";
+				//$this->Email->send();
+								//CakeEmail::deliver('tbthorpe@gmail.com', 'SUBBY', 'Message', array('from' => 'tim@paddle8.com'));
+				//$Email = new CakeEmail();
+				//$Email->from(array('tim@paddle8.com' => 'My Site'));
+				//$Email->to('tbthorpe@gmail.com');
+				//$Email->subject('About');
+				//$Email->send($message);
 				echo "done";
 				//debug($this->params['pass']);
 			}

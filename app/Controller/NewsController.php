@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('tmhOAuth', 'tmhOAuth');
 /**
  * Sections Controller
  *
@@ -65,6 +66,18 @@ class NewsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->News->create();
 			if ($this->News->saveAll($this->request->data)) {
+                $new_shit = $this->News->read(null,$this->News->id);
+                $sluggo = $new_shit['News']['slug'];
+                $tit = $new_shit['News']['title'];
+                $tmhOAuth = new tmhOAuth();
+
+                $code = $tmhOAuth->user_request(array(
+                      'method' => 'POST',
+                        'url' => $tmhOAuth->url('1.1/statuses/update'),
+                          'params' => array(
+                                  'status' => $tit . " - read at http://www.perfectsoundstudios.com/news/view/" . $sluggo
+                  )
+                ));
 				$this->Session->setFlash(__('The post has been saved'));
 				$this->redirect(array('action' => 'loggedinindex'));
 			} else {

@@ -59,11 +59,15 @@
 		});
 		$('#homepage_news #newsheader').toggle(
 			function(){
-				$('#homepage_news').animate({"height": "196px"}, "slow");
+				//var h = $('#homepage_news').height();
+				//$('#homepage_news').animate({"height": $('#homepage_news').height() }, "slow");
+				$('#homepage_news').animate({"bottom": "0px" }, "slow");
 				$('#minimizearrow').attr('src','/img/downarrow.png');
 			},
 			function(){
-				$('#homepage_news').animate({"height": "31px"}, "slow");
+				var h = $('#homepage_news').height();
+                var p = h - 31;
+				$('#homepage_news').animate({"bottom": "-"+p+"px"}, "slow");
 				// $('#minimizearrow').html('&uarr;');
 				$('#minimizearrow').attr('src','/img/uparrow.png');
 			});
@@ -96,13 +100,14 @@
 				<a href="/" id="logolink"></a>
 				<div id="headernav">
 					<ul>
-						<li><a href="/the-news">The News</a></li>
-						<li><a href="/the-gear">The Gear</a></li>
-						<li><a href="/the-rates">The Rates</a></li>
-						<li><a href="/the-experience ">The Experience</a></li>
-						<li><a href="/the-team">The Team</a></li>
-						<li><a href="/the-house">The House</a></li>
-						<li><a href="/the-studio">The Studio</a></li>
+						<li><a href="/the-news">News</a></li>
+						<li><a href="/the-clients">Clients</a></li>
+						<li><a href="/the-gear">Gear</a></li>
+						<li><a href="/the-rates">Rates</a></li>
+						<li><a href="/the-experience ">Experience</a></li>
+						<li><a href="/the-team">Team</a></li>
+						<li><a href="/the-house">House</a></li>
+						<li><a href="/the-studio">Studio</a></li>
 						<br style="clear:both;">
 					</ul>
 				</div>
@@ -154,7 +159,7 @@
 					<p class="copyright">&copy; <?= date('Y'); ?> Perfect Sound Studios</p>
 				</div>
 				<div id="socialicons">
-					<a href="#" target="_blank"><img src="/img/twittericon.png"></a>
+					<a href="http://twitter.com/perfectsound" target="_blank"><img src="/img/twittericon.png"></a>
 					<a href="https://www.facebook.com/pages/Perfect-Sound-Studios/190871317666366"><img src="/img/facebookicon.png"></a>
 				</div>
 			</div>

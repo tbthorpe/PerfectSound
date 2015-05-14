@@ -31,17 +31,20 @@
 	
 </div>
 <div id="section-content">
-	<div class="section-copy">
+	<br style="clear:both;">
+</div>
+<div style="position:relative;">
+	<div class="section-copy" style="float:none;">
 		<p><?php echo $section['Section']['copy']; ?></p>
 	</div>
-	<div class="section-other">
+	<div class="section-other" style="position:absolute;float:none;top:0;right:32px;">
 		<div id="section_news" class="allnewsmodule">
 			<div id="newsheader">NEWS</div>
 			<?php $i=1; ?>
 			<?php foreach ($news as $post): ?>
 				<div class="section-news-post">
 					<!-- <h2><?php echo $i."."; $i++; ?></h2> -->
-					<img class="newsthumb" src="/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>">
+                    <div style="height: 40px; float: left; background: url(/img/Assets/<?php echo $post['BlogThumb']['filename']; ?>) no-repeat scroll 50% 50% / contain  transparent; width: 40px;padding-right:10px;" class="imgbg"></div>
 					<h1>
 						<a href="/news/view/<?php echo $post['News']['slug']; ?>"><?php echo $post['News']['title']; ?></a>
 						<span class="newsdate">(<?php echo $post['News']['displaydate']; ?>)</span>
@@ -51,9 +54,6 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<br style="clear:both;">
-</div>
-<div style="margin-top:-200px">
 	<?php foreach ($team as $person): ?>
 		<div class="biowrapper">
 			<h2><?php echo $person['Person']['name']; ?></h2>

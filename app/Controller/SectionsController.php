@@ -12,7 +12,7 @@ class SectionsController extends AppController {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('view','homepage','theblog','theteam','thegear','update_order');
+		$this->Auth->allow('blank','view','homepage','theblog','theteam','thegear','update_order');
 	}
 	
 	public function index() {
@@ -28,17 +28,19 @@ class SectionsController extends AppController {
 			throw new NotFoundException(__('Invalid section'));
 		}
 		$this->set('section', $this->Section->read(null, $id));
-		$news = $this->News->getSomeHeadlines(3);
+		$news = $this->News->getSomeHeadlines(5);
 		$this->set('news',$news);
 	}
-	
+    public function blank() {
+        $this->layout = null;
+    }
 	public function homepage(){
 		$this->Section->id = 9;
 		if (!$this->Section->exists()) {
 			throw new NotFoundException(__('Invalid section'));
 		}
 		$this->set('section', $this->Section->read(null,9));
-		$news = $this->News->getSomeHeadlines(3);
+		$news = $this->News->getSomeHeadlines(5);
 		$this->set('news',$news);
 	}
 	
@@ -48,7 +50,7 @@ class SectionsController extends AppController {
 			throw new NotFoundException(__('Invalid section'));
 		}
 		$this->set('section', $this->Section->read(null,TEAM));
-		$news = $this->News->getSomeHeadlines(3);
+		$news = $this->News->getSomeHeadlines(5);
 		$this->set('news',$news);
 		$team = $this->Person->getFullTeam();
 		$this->set('team',$team);
@@ -71,7 +73,7 @@ class SectionsController extends AppController {
 			throw new NotFoundException(__('Invalid section'));
 		}
 		$this->set('section', $this->Section->read(null,GEAR));
-		$news = $this->News->getSomeHeadlines(3);
+		$news = $this->News->getSomeHeadlines(5);
 		$this->set('news',$news);
 	}
 

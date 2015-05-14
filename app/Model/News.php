@@ -36,7 +36,7 @@ class News extends AppModel {
 			'recursive'=>0,
 			'order'=>array('News.displaydate'=>'DESC'),
 			'conditions' => array('News.inwidget'=>1),
-			'limit'=>$num
+			'limit'=>3,
 		));
 		return $news;
 	}
