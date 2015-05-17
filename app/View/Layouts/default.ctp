@@ -132,12 +132,17 @@
 								<p class="widget-text"><?php echo $widget['Widget']['text']?></p>
 								<p><a class="learnmore" href="<?= $widget['Widget']['linkurl']?>">learn more&rarr;</a></p>
 							<?php else: ?>
-								<a target="_blank" href="<?php echo $widget['Widget']['linkurl']?>"><h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4></a>
-								<div class="imagecontainer" <?php echo (empty($widget['Widget']['title'])) ? "style='height:90px;'" : ""; ?>>
+								<?php if ($widget['Widget']['title']): ?>
+									<a target="_blank" href="<?php echo $widget['Widget']['linkurl']?>"><h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4></a>
+								<?php endif; ?>
+								<div class="imagecontainer" style="height:90px;<?php echo (empty($widget['Widget']['title'])) ? "padding-top:24px;" : ""; ?>">
 									<a href="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" class="widgimg" title="<?php echo htmlspecialchars($widget['Widget']['text']); ?>"><img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" height="100%"></a>
 								</div>
 							<?php endif; ?>
 						<?php else: ?>
+								<?php if ($widget['Widget']['title']): ?>
+									<a target="_blank" href="<?php echo $widget['Widget']['linkurl']?>"><h4 class="imagetitle"><?php echo $widget['Widget']['title']?></h4></a>
+								<?php endif; ?>
 							<div class="vidcontainer">
 								<a href="http://www.youtube.com/watch?v=<?php echo $widget['Widget']['videoembed'] ?>" class='widgetvideo'><img src="http://img.youtube.com/vi/<?php echo $widget['Widget']['videoembed'] ?>/2.jpg">
 								<img src="/img/playbutton.png" style="cursor:pointer;position: absolute;top: 17px;left: 36px;"></a>

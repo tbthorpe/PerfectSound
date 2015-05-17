@@ -34,6 +34,7 @@
 						<?php if ($this->data['Section']['name'] == 'homepage' || $this->data['Section']['name'] == 'The News'): ?>
 							<?php echo $this->Form->input("MainImage.$i.headline"); ?>
 							<?php echo $this->Form->input("MainImage.$i.caption"); ?>
+							<?php echo $this->Form->input("MainImage.$i.link_url"); ?>
 						<?php endif; ?>
 						<?php echo $this->Form->hidden("MainImage.$i.type"); ?>
 						<?php echo $this->Form->hidden("MainImage.$i.class"); ?>

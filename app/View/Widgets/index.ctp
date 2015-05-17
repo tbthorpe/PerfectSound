@@ -6,7 +6,8 @@
 	#sortables li:nth-child(even) {
 		background: #F9F9F9;
 	}
-	.sWidget SPAN.wTitle{display:block;float:left;width:240px;padding-left:10px;}
+	.sWidget SPAN.wTitle{float:none;padding-left:10px;}
+	li.sWidget .actions{float:right;clear:right;}
 </style>
 
 <div class="widgets index">
@@ -29,7 +30,7 @@
 	<!-- <tr> -->
 		<li class="sWidget" id="w_<?php echo $widget['Widget']['id']; ?>">
 			<?php if (!empty($widget['WidgImg']['filename'])): ?>
-				<img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="75px" style="float:left;margin-bottom:10px;">
+				<img src="/img/Assets/<?php echo $widget['WidgImg']['filename']; ?>" width="75px" style="float:none;margin-bottom:10px;">
 			<?php endif; ?>
 		 <span class="wTitle"><?php echo h($widget['Widget']['title']); ?>&nbsp;</span>
 				<!--<span><?php echo h($widget['Widget']['linkurl']); ?>&nbsp;</span>

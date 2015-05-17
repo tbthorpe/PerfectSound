@@ -30,7 +30,13 @@
 	<div id="homesliderbg"></div>
 	<div id="homeslider" style="height:400px;width:800px;margin:0;padding:0;">
 		<?php foreach($section['MainImage'] as $img): ?>
-			<img src="/img/Assets/<?php echo $img['filename']; ?>" <?php echo (1) ? "data-caption='#cap".$img['id']."'":''?>> <!-- end image tag -->
+			<?php if ($img['link_url']): ?>
+				<a href="<?php echo $img['link_url']; ?>" <?php echo (1) ? "data-caption='#cap".$img['id']."'":''?>>
+					<img src="/img/Assets/<?php echo $img['filename']; ?>"> <!-- end image tag -->
+				</a>
+			<?php else: ?>
+				<img src="/img/Assets/<?php echo $img['filename']; ?>" <?php echo (1) ? "data-caption='#cap".$img['id']."'":''?>> <!-- end image tag -->
+			<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
 

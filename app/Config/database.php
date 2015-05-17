@@ -51,8 +51,8 @@ class DATABASE_CONFIG {
 				'persistent' => false,
 				'host' => '127.0.0.1',
 				'login' => 'root',
-				'password' => '',
-				'database' => 'perfectsound',
+				'password' => 'newyork',
+				'database' => 'pss',
 				'prefix' => '',
 				'encoding' => 'utf8',
 			);
@@ -65,8 +65,8 @@ class DATABASE_CONFIG {
 			case ('www.perfectsoundstudios.com'):
 			case ('secret.perfectsoundstudios.com'):
 				$this->default = $this->production;
-			break;
-			case ('perfectsound.local'):
+				break;
+			default:
 				 $this->default = $this->local;
 			break;			
 		}

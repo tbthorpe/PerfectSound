@@ -346,6 +346,7 @@ switch($_SERVER['SERVER_NAME']){
 		define('GEAR',8);
 	break;
 	case ('perfectsound.local'):
+	case ('pss.local'):
 		define('NEWS',11);
 		define('TEAM',5);
 		define('GEAR',8);
